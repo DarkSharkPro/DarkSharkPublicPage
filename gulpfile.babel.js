@@ -8,6 +8,7 @@ import pug from 'gulp-pug';
 import importCss from 'gulp-import-css';
 
 // JS related plugins
+import we
 
 // Utility plugins
 import notify from 'gulp-notify';
