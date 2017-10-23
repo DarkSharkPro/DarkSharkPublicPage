@@ -1,2 +1,2 @@
 
-export default () => alert('Hello');
+export default () => console.log('Hello!!!');
