@@ -1,2 +1,2 @@
-import sayHello from './components/header/header';
+import sayHello from './components/header/script';
 sayHello();

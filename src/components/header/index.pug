@@ -1,0 +1,6 @@
+include ../logo/index
+
+mixin header(content, data)
+    header.header&attributes(data ? data : {})
+        div.container
+            +logo("/", {"class": "logo__img--black"})

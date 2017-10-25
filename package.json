@@ -24,6 +24,7 @@
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.1",
+    "gulp-svg-sprites": "^4.1.2",
     "uglifyjs-webpack-plugin": "^1.0.0-rc.0",
     "webpack-stream": "^4.0.0"
   },
@@ -31,5 +32,8 @@
     "presets": [
       "es2015"
     ]
+  },
+  "dependencies": {
+    "bootstrap-4-grid": "^2.0.0"
   }
 }

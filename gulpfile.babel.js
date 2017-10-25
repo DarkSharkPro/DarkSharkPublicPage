@@ -15,6 +15,9 @@ import webpackConfig from './webpack.config';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 const webpack = webpackStream.webpack;
 
+// SVG related plugins
+import svgSprite from 'gulp-svg-sprites';
+
 // Utility plugins
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
@@ -30,6 +33,8 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'develop
 
 
 // Tasks
+
+// Start server
 gulp.task('server:start', () => {
     return server.init({
         server: 'dist',
@@ -42,6 +47,8 @@ function reload(done) {
     done();
 }
 
+
+// Templates compile
 gulp.task('templates:compile', function buildHTML(){
     return gulp.src('src/*.pug')
         .pipe(plumber({
@@ -60,8 +67,9 @@ gulp.task('templates:compile', function buildHTML(){
 });
 
 
+// Styles compile
 gulp.task('styles:compile', () => {
-    return gulp.src('./src/*.css')
+    return gulp.src('./src/style.css')
         .pipe(plumber({
             errorHandler: notify.onError((err) => {
                 return {
@@ -80,6 +88,7 @@ gulp.task('styles:compile', () => {
 });
 
 
+// Scripts compile
 gulp.task('scripts:compile', () => {
     webpackConfig.devtool = isDevelopment ? 'cheap-module-inline-source-map' : '';
     if (!isDevelopment) webpackConfig.plugins.push(
@@ -87,6 +96,29 @@ gulp.task('scripts:compile', () => {
     );
     return webpackStream(webpackConfig)
         .pipe(gulp.dest('./dist'))
+});
+
+
+// SVG sprite
+gulp.task('sprite:compile', () => {
+    return gulp.src('./src/components/**/*.svg')
+        .pipe(plumber({
+            errorHandler: notify.onError((err) => {
+                return {
+                    title: 'Sprites',
+                    message: err.message
+                }
+            })
+        }))
+        .pipe(svgSprite({
+            mode: "symbols",
+            preview: false,
+            svgId: "%f",
+            svg: {
+                symbols: "./sprite.svg"
+            }
+        }))
+        .pipe(gulp.dest('dist/assets'));
 });
 
 
