@@ -13,10 +13,12 @@ import cssnano from 'cssnano';
 import webpackStream from 'webpack-stream';
 import webpackConfig from './webpack.config';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
-const webpack = webpackStream.webpack;
 
 // SVG related plugins
 import svgSprite from 'gulp-svg-sprites';
+import cheerio from 'cheerio';
+import through2 from 'through2';
+import gutil from 'gulp-util';
 
 // Utility plugins
 import notify from 'gulp-notify';
@@ -33,7 +35,6 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'develop
 
 
 // Tasks
-
 // Start server
 gulp.task('server:start', () => {
     return server.init({
@@ -118,7 +119,23 @@ gulp.task('sprite:compile', () => {
                 symbols: "./sprite.svg"
             }
         }))
-        .pipe(gulp.dest('dist/assets'));
+        .pipe(through2.obj(function (file, encoding, cb) {
+            const $ = cheerio.load(file.contents.toString(), {xmlMode: true});
+            const data = $('svg > symbol').map(function () {
+                return {
+                    id: $(this).attr('id'),
+                    viewBox: $(this).attr('viewBox')
+                };
+            }).get();
+            const jsonFile = new gutil.File({
+                path: 'metadata.json',
+                contents: new Buffer(JSON.stringify(data))
+            });
+            this.push(jsonFile);
+            this.push(file);
+            cb();
+        }))
+        .pipe(gulp.dest('dist/assets/'));
 });
 
 
@@ -130,7 +147,7 @@ gulp.task('watch', () => {
 
 
 gulp.task('default', gulp.series(
-    gulp.parallel('templates:compile', 'styles:compile', 'scripts:compile'),
+    gulp.parallel('templates:compile', 'styles:compile', 'sprite:compile', 'scripts:compile'),
     gulp.parallel('server:start', 'watch')
 ));
 
