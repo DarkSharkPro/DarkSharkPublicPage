@@ -1,4 +1,3 @@
-mixin logo(url, data)
-    a(href= url).logo
-        svg.logo__image&attributes(data ? data : {})
-            use(xlink:href="./assets/sprite.svg#logo")
+mixin logo(data)
+    div.logo&attributes(data ? data : {})
+        include ./assets/logo.svg

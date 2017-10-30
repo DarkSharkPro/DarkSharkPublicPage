@@ -1,0 +1,86 @@
+.hamburger {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    text-transform: none;
+    display: inline-block;
+    outline: none;
+    height: 20px;
+}
+
+.hamburger__box {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    width: 30px;
+}
+
+.hamburger__inner {
+    display: block;
+    top: 50%;
+    margin-top: -1.5px;
+}
+
+.hamburger__inner,
+.hamburger__inner::before,
+.hamburger__inner::after {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: $light;
+    border-radius: 1.5px;
+}
+
+.hamburger__inner::before,
+.hamburger__inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger__inner::before {
+    top: -8px;
+}
+
+.hamburger__inner::after {
+    bottom: -8px;
+}
+
+@media screen and (min-width: 768px) {
+    .hamburger,
+    .hamburger__box {
+        height: 30px;
+    }
+    
+    .hamburger__box,
+    .hamburger__inner,
+    .hamburger__inner::before,
+    .hamburger__inner::after {
+        width: 44px;
+    }
+
+    .hamburger__inner,
+    .hamburger__inner::before,
+    .hamburger__inner::after {
+        height: 5px;
+        background-color: $dark;
+    }
+
+    .hamburger__inner {
+        margin-top: -2.5px;
+    }
+
+    .hamburger__inner::before {
+        top: -12.5px;
+    }
+
+    .hamburger__inner::after {
+        bottom: -11.5px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .hamburger {
+        display: none;
+    }
+}

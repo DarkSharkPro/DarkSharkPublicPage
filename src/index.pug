@@ -1,4 +1,5 @@
 include components/header/index
+include components/promo/index
 
 doctype html
 html(lang='en')
@@ -11,6 +12,8 @@ html(lang='en')
     body
         div.wrapper
             +header
+            main.main
+                +promo
 
         script(src="bundle.js")
 

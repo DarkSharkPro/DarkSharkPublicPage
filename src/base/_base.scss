@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+html {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    width: 100%;
+    height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,
+p,
+ol, ul {
+    margin: 0;
+}
+
+ol, ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    &:active,
+    &:hover {
+        outline: none;
+    }
+}
+
+img {
+    border-style: none;
+    display: inline-block;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+svg {
+    display: inline-block;
+    height: 1em;
+    font-size: inherit;
+    line-height: 1;
+}
+
+form,
+fieldset {
+    border-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+
+
+
+

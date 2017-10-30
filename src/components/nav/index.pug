@@ -1,0 +1,6 @@
+mixin nav(content, data)
+    nav.nav&attributes(data ? data : {})
+        ul.nav__list
+            for item, index in content[0]
+                li(class= index == content[1] ? 'is-active' : '').nav__list-item
+                    a(href= item[1]).nav__list-link= item[0]

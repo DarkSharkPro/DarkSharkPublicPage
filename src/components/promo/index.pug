@@ -1,0 +1,18 @@
+mixin promo(content)
+    section.promo
+        div.promo__left
+        div.promo__right
+        div.promo__caption
+            div.promo__greet
+                div.promo__letter
+                    img(src="./assets/h-mobile.svg")
+                div.promo__letter.promo__letter--i
+                    picture
+                        source(media="(min-width: 768px)" srcset="./assets/i-desktop.svg")
+                        img(src="./assets/i-mobile.svg")
+            div.promo__text
+                h1.promo__title We are DarkShark!
+                p.promo__subtitle We create software for people and their business.
+
+
+
