@@ -1,0 +1,12 @@
+mixin rewards(content)
+    div.rewards
+        div.rewards__carousel
+            for image in content[0]
+                div.rewards__image
+                    img(src= image alt="")
+        div.rewards__text
+            for description in content[1]
+                div.rewards__description
+                    h4.rewards__title= description.title
+                    p=description.descr
+

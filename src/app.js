@@ -1,5 +1,7 @@
 import sayHello from './components/header/script';
+import rewardsCarousel from './components/rewards/script';
 sayHello();
+rewardsCarousel();
 
 // todo
 // import spritesData from '../dist/assets/metadata.json';

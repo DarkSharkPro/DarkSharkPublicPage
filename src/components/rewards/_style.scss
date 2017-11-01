@@ -1,0 +1,21 @@
+.rewards__image {
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+
+.rewards__image img {
+  position: absolute;
+  max-width: 40px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  transition: all 300ms ease;
+}
+
+.slick-center img {
+  transform: scale(1.5);
+}

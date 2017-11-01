@@ -1,0 +1,38 @@
+.about__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about__titles {
+  background-color: $light-grey;
+  padding: 45px 0 35px;
+  overflow: hidden;
+}
+
+.about__title {
+  font-size: 2.94rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: $grey;
+  text-transform: uppercase;
+  margin-right: -40px;
+}
+
+.about__content {
+  padding: 29px 0 19px;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  text-align: left;
+  color: #999;
+}
+
+.about__heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: $dark;
+  margin: 2.1875em 0 2.4375em;
+}
