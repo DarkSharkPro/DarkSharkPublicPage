@@ -1,0 +1,8 @@
+include ../title-card/index
+include ../title-large-text/index
+
+mixin section-title(content, anchor, x, data)
+    div.titles&attributes(data ? data : {})
+        +title-card(content, anchor, x)
+        +title-large-text(content)
+

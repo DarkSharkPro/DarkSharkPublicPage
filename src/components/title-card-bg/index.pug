@@ -1,0 +1,6 @@
+mixin title-card-bg(content, data)
+    h3.title-card-css&attributes(data ? data : {})
+        for word in content
+            span= word
+
+

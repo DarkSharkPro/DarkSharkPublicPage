@@ -1,0 +1,41 @@
+.carousel {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.carousel__item {
+  @media screen and (min-width: 768px) {
+    width: calc(100% / 3);
+    padding: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+.carousel__inner {
+  height: 96px;
+  width: 190px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    padding: 17px;
+    background-color: #ffffff;
+    filter: grayscale(100%);
+    transition: all 0.4s ease;
+
+    &:hover {
+      box-shadow: 0 0 11px 2px rgba(177, 177, 177, 0.24);
+      filter: grayscale(0);
+    }
+
+    svg {
+      transform: translate3d(0, -13%, 0);
+    }
+  }
+}
+

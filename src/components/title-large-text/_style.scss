@@ -1,0 +1,14 @@
+.title-large {
+  font-size: 2.94rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: $grey;
+  text-transform: uppercase;
+  margin-right: -20px;
+
+  span {
+    display: block;
+  }
+}

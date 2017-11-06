@@ -1,0 +1,29 @@
+.stats {
+  padding: 28px 0 38px;
+}
+
+.stats__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.stats__number {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #171717;
+  display: block;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.stats__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: 0.2px;
+  color: #dadada;
+  display: block;
+  text-align: center;
+}

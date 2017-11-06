@@ -1,0 +1,16 @@
+include ../input-file/index
+
+mixin contact-form(content, data)
+    form.form
+        div.form__group
+            div.form__field
+                input.form__input(type="text" name="" placeholder= content.name)
+            div.form__field
+                input.form__input(type="email" name="" placeholder= content.email)
+        div.form__field.form__field--mb
+            textarea.form__input.form__input--textarea(name="" placeholder= content.textarea)
+        div.form__group
+            div.form__field.form__field--mb
+                input.form__submit(type="submit" value="Send")
+            div.form__file
+                +input-file()

@@ -1,0 +1,34 @@
+.file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file + label {
+  display: block;
+  cursor: pointer;
+  width: 31px;
+  height: 31px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
+.file__name {
+  font-size: 1.2rem;
+  line-height: 1.38;
+  color: #ffffff;
+  margin-left: 15px;
+}

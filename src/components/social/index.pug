@@ -1,0 +1,7 @@
+mixin socials(content, data)
+    ul.social
+        for item in content
+            li.social__item
+                a.social__link(href= item.href target="_blank")
+                    svg(viewBox="0 0 10 10" preserveAspectRatio="xMinYMin")
+                        use(xlink:href= item.icon)

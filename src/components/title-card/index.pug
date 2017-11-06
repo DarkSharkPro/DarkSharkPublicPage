@@ -1,21 +1,26 @@
-mixin title-card(content, data)
-    div.title-card&attributes(data ? data : {})
-        svg(height="62" width="105")
+mixin title-card(content, anchor, x)
+    div.title-card
+        svg(height="62" width="115")
             defs
-                linearGradient(id="gradient")
+                linearGradient(id="short")
+                    stop(offset="0" stop-color="#4b7dea")
+                    stop(offset="0.09" stop-color="#4979e3")
+                linearGradient(id="short2")
+                    stop(offset="0.22" stop-color="#426ece")
+                    stop(offset="0.38" stop-color="#375bad")
+                    stop(offset="0.56" stop-color="#27427f")
+                    stop(offset="0.75" stop-color="#142145")
+                    stop(offset="0.83" stop-color="#0b132b")
+                linearGradient(id="long")
                     stop(offset="0" stop-color="#4b7dea")
                     stop(offset="0.09" stop-color="#4979e3")
                     stop(offset="0.22" stop-color="#426ece")
                     stop(offset="0.38" stop-color="#375bad")
                     stop(offset="0.56" stop-color="#27427f")
-                    stop(offset="0.75" stop-color="#142145")
-
-                linearGradient(id="gradient2")
+                linearGradient(id="long2")
                     stop(offset="0.75" stop-color="#142145")
                     stop(offset="0.83" stop-color="#0b132b")
 
-            rect(height="62" width="105" stroke="url(#gradient)")
-            text(fill="url(#gradient)" dominant-baseline="middle" text-anchor="end" x="90" y="38%")= content[0]
-            text(fill="url(#gradient2)" dominant-baseline="middle" text-anchor="end" x="90" y="62%")= content[1]
-
-
+            rect(height="62" width="115" stroke="url(#long)")
+            text(fill= anchor ? "url(#short)" : "url(#long)" dominant-baseline="middle" text-anchor= anchor||"end" x= x||"100" y="38%")= content[0]
+            text(fill= anchor ? "url(#short2)" : "url(#long2)" dominant-baseline="middle" text-anchor= anchor||"end" x= x||"100" y="63%")= content[1]

@@ -5,11 +5,399 @@
 @import "components/logo/style";
 @import "components/hamburger/style";
 @import "components/nav/style";
-@import "components/header/style";
-@import "components/promo/style";
+@import "components/section-titles/style";
+@import "components/title-large-text/style";
+@import "components/title-card-bg/style";
 @import "components/title-card/style";
-@import "components/about/style";
-@import "components/rewards/style";
+@import "components/stats/style";
+@import "components/carousel-workspace/style";
+@import "components/carousel-simple/style";
+@import "components/carousel-centered/style";
+@import "components/vacancy/style";
+@import "components/contact-form/style";
+@import "components/input-file/style";
+@import "components/social/style";
 
 
+/////////////
+// HEADER //
+////////////
 
+.header {
+  padding: 15px 0;
+  position: absolute;
+  background-color: transparent;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo svg {
+  fill: $light;
+  font-size: 29px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 43px;
+  }
+}
+
+.header__nav {
+  display: none;
+
+  @media screen and (min-width: 992px){
+    display: block;
+  }
+}
+
+.header__nav {
+  .nav__list {
+    letter-spacing: 0.8px;
+  }
+
+  .nav__list-item {
+    padding: 0 3px;
+  }
+
+  .nav__list-item.is-active {
+    color: $dark-blue;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -11px;
+      height: 2px;
+      width: 100%;
+      background-color: #5184f0;
+    }
+  }
+}
+
+
+////////////////////
+// PROMO SECTION //
+///////////////////
+
+.promo {
+  display: flex;
+  position: relative;
+}
+
+.promo__left {
+  background-image: linear-gradient(140deg, #5188ff, #050918);
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 47%;
+  }
+}
+
+.promo__right {
+  display: none;
+  background: url("assets/promo-background.png") no-repeat center/cover;
+  width: 53%;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.promo__right,
+.promo__left {
+  height: 100vh;
+  max-height: 771px;
+}
+
+.promo__caption {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.promo__greet {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.promo__letter img {
+  height: 227px;
+}
+
+
+////////////////////
+// ABOUT SECTION //
+///////////////////
+.about__content {
+  padding: 24px 0 0;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  text-align: left;
+  color: #999;
+}
+
+.about__hidden {
+  display: none;
+  @media  screen and (min-width: 768px){
+    display: block;
+  }
+}
+
+.about__heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: $dark;
+  margin: 26px 0 28px;
+}
+
+.about__card {
+  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 98px 0;
+  margin: 0 -15px;
+}
+
+.about__ceo {
+  font-size: 12px;
+  line-height: 1.84;
+  text-align: left;
+  color: #999999;
+  padding: 22px 0 30px;
+}
+
+.rewards {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #b7b7b7;
+}
+
+.rewards .slick-dots {
+  margin: 22px 0 0;
+}
+
+.rewards .carousel-centered__title {
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.38;
+  color: #5188ff;
+  text-align: center;
+  margin: 17px 0 0;
+  padding: 20px 20px 6px;
+  background-color: #f9f8f8;
+}
+
+
+///////////////////////
+// PARTNERS SECTION //
+//////////////////////
+.partners__content {
+  padding: 25px 0 55px;
+}
+
+.partners__carousel .slick-dots {
+  margin-top: 30px;
+}
+
+.partners__carousel .slick-dot {
+  height: 9px;
+  width: 9px;
+  margin: 0 5px;
+}
+
+.partners__titles {
+  .title-large {
+    margin-right: -60px;
+  }
+}
+
+
+///////////////////////
+// BUSINESS SECTION //
+//////////////////////
+.business__card {
+  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 98px 0;
+  margin: 0 -15px;
+}
+
+.business__hidden {
+  display: none;
+}
+
+.business__heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.13;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #171717;
+  margin-bottom: 6px;
+}
+
+.business__technologies {
+  padding: 32px 0 45px;
+}
+
+.services {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  text-align: center;
+  color: #999999;
+  padding: 32px 0 0;
+}
+
+.services svg  {
+  fill: #dadada;
+  stroke: #dadada;
+}
+
+.services .slick-center svg  {
+  fill: $dark-blue;
+  stroke: $dark-blue;
+}
+
+.services .slick-dots {
+  margin-top: 6px;
+}
+
+.services .carousel-centered__title {
+  font-size: 1.32rem;
+  font-weight: 700;
+  line-height: 1.37;
+  letter-spacing: 0.7px;
+  color: #171717;
+  text-align: center;
+  margin: 17px 0 22px;
+}
+
+.services .carousel-centered__text {
+  padding-top: 13px;
+}
+
+.technologies__carousel .slick-dots {
+  margin-top: 24px;
+}
+
+.technologies__carousel .slick-dot {
+  height: 9px;
+  width: 9px;
+  margin: 0 5px;
+}
+
+
+/////////////////////
+// CAREER SECTION //
+////////////////////
+.career__titles {
+  .title-large {
+    margin-right: -60px;
+  }
+}
+
+.career__content {
+  padding: 34px 0;
+}
+
+.career__heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  color: #171717;
+  margin-bottom: 24px;
+}
+
+
+/////////////////////////
+// CONTACT US SECTION //
+////////////////////////
+.contact {
+  background-image: linear-gradient(305deg, #050918, #4879e5);
+  padding: 24px 0;
+}
+
+.contact__card {
+  position: relative;
+}
+
+.contact__title {
+  position: static;
+  transform: none;
+  width: 125px;
+  height: 55px;
+  margin-bottom: 40px;
+}
+
+
+/////////////////////////
+//////// FOOTER ////////
+////////////////////////
+.footer {
+  padding: 25px 0 31px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.footer__nav {
+  width: 50%;
+
+  .nav__list {
+    display: block;
+  }
+
+  .nav__list-item {
+    margin: 0 0 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.footer__info {
+  width: 50%;
+}
+
+.footer__logo {
+  font-size: 27px;
+  line-height: 0;
+  margin-bottom: 30px;
+
+  svg {
+    fill: #000;
+  }
+}
+
+.footer__email {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  line-height: 1;
+  color: #171717;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

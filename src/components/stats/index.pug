@@ -1,0 +1,7 @@
+mixin stats(content, data)
+    div.stats
+        ul.stats__list
+            for item in content
+                li.stats__item
+                    span.stats__number= item.number
+                    span.stats__title= item.title

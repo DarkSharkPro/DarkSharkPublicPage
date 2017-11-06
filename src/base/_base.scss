@@ -1,100 +1,131 @@
 * {
-    box-sizing: border-box;
-    &::before,
-    &::after {
-        box-sizing: inherit;
-    }
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 html {
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    font-weight: 400;
-    line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: 400;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    margin: 0;
-    min-width: 320px;
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
 }
 
 h1,h2,h3,h4,h5,h6,
 p,
 ol, ul {
-    margin: 0;
+  margin: 0;
 }
 
 ol, ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-    &:active,
-    &:hover {
-        outline: none;
-    }
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  &:active,
+  &:hover {
+    outline: none;
+  }
 }
 
 img {
-    border-style: none;
-    display: inline-block;
+  border-style: none;
+  display: inline-block;
 }
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 svg {
-    display: inline-block;
-    font-size: inherit;
+  display: inline-block;
+  font-size: inherit;
 }
 
 form,
 fieldset {
-    border-style: none;
-    margin: 0;
-    padding: 0;
+  border-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 input,
 button,
 select,
 textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 button,
 input {
-    overflow: visible;
+  overflow: visible;
 }
 
 button,
 select {
-    text-transform: none;
+  text-transform: none;
 }
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer;
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    font: inherit;
+  -webkit-appearance: button;
+  font: inherit;
 }
 
+.slick-slide, .slick-slide * { outline: none !important; }
+
+.slick-dots {
+  text-align: center;
+  line-height: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+.slick-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #d6d6d6;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  margin: 0 4px;
+}
+
+.slick-active .slick-dot {
+  background-color: #b5b5b5;
+  transform: scale(1.2);
+}
+
+.svg-sprite {
+  height: 0;
+  width: 0;
+  position: absolute;
+  visibility: hidden
+}
 
 
 

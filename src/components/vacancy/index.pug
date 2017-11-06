@@ -1,0 +1,13 @@
+mixin vacancy(content, data)
+    div.vacancy
+        div.vacancy__header
+            div.vacancy__icon
+                svg(viewBox="0 0 50 50" preserveAspectRatio="xMinYMin")
+                    use(xlink:href= content.icon)
+            div.vacancy__title
+                h4.vacancy__position= content.position
+                span.vacancy__salary= content.salary
+        div.vacancy__description
+            p= content.description
+        div.vacancy__btn
+            button.vacancy__read-more(type="button") Read more

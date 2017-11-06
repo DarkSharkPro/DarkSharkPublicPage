@@ -1,6 +1,17 @@
-include components/header/index
-include components/promo/index
-include components/about/index
+include ./components/logo/index
+include ./components/nav/index
+include ./components/hamburger/index
+include ./components/section-titles/index
+include ./components/title-card-bg/index
+include ./components/title-large-text/index
+include ./components/carousel-workspace/index
+include ./components/carousel-simple/index
+include ./components/carousel-centered/index
+include ./components/stats/index
+include ./components/vacancy/index
+include ./components/contact-form/index
+include ./components/social/index
+
 
 doctype html
 html(lang='en')
@@ -11,11 +22,249 @@ html(lang='en')
         link(rel="stylesheet", href="style.css")
 
     body
+        div.svg-sprite
+            include ./assets/sprite/sprite-icons.svg
         div.wrapper
-            +header
+            header.header
+                div.container.header__container
+                    +logo({"class": "header__logo"})
+
+                    +hamburger
+                    +nav(
+                        [
+                            [
+                                ["about", "#"],
+                                ["services", "#"],
+                                ["technologies", "#"],
+                                ["careers", "#"],
+                                ["contact", "#"]
+                            ],
+                            0
+                        ],
+                        {"class": "header__nav"}
+                    )
             main.main
-                +promo
-                +about
+                section.promo
+                    div.promo__left
+                    div.promo__right
+                    div.promo__caption
+                        div.promo__greet
+                            div.promo__letter
+                                img(src="./assets/letters/h-mobile.svg")
+                            div.promo__letter.promo__letter--i
+                                picture
+                                    source(media="(min-width: 768px)" srcset="./assets/letters/i-desktop.svg")
+                                    img(src="./assets/letters/i-mobile.svg")
+                        div.promo__text
+                            h1.promo__title We are DarkShark!
+                            p.promo__subtitle We create software for people and their business.
+                section.about
+                    div.container
+                        div.about__firstly
+                            div.about__titles
+                                +section-title(["about", "us"])
+                            div.about__content
+                                p After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized that his true passion was for helping organizations with their technology. And from that passion, ItCon was born. After being in business a short time, he realized that many companies were being underserved and were constantly “putting out technology fires” that never should have happened in the first place.
+                                p.about__hidden That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitability and workflow to increase quickly, which has led to our slogan. After being in business a short time.
+                                h3.about__heading Our rewards:
+                                +carousel-centered([
+                                    [
+                                        "#nasa-logo",
+                                        "#space-apps-logo",
+                                        "#int20h",
+                                        "#nasa-logo"
+                                    ],
+                                    [
+                                        {
+                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
+                                        },
+                                        {
+                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
+                                        },
+                                        {
+                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
+                                        },
+                                        {
+                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
+                                        }
+                                    ]
+                                ], {"class": "rewards"})
+                        div.about__secondary
+                            +stats([
+                                {
+                                    "title": "Work hours",
+                                    "number": "3456"
+                                },
+                                {
+                                    "title": "Happy clients",
+                                    "number": "345"
+                                },
+                                {
+                                    "title": "Projects",
+                                    "number": "150"
+                                },
+                                {
+                                    "title": "Cup of coffee",
+                                    "number": "3.456"
+                                }
+                            ])
+                            div.about__card
+                                +title-card-bg(["Our", "work-", "space"])
+                            div.about__ceo
+                                p After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized that his true passion was for helping organizations with their technology. And from that passion
+                                p That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years.
+                        +workspace-carousel([
+                            "./assets/workspace/workspace-1.jpg",
+                            "./assets/workspace/workspace-2.jpg",
+                            "./assets/workspace/workspace-3.jpg",
+                            "./assets/workspace/workspace-4.jpg",
+                            "./assets/workspace/workspace-1.jpg",
+                            "./assets/workspace/workspace-2.jpg",
+                            "./assets/workspace/workspace-3.jpg",
+                            "./assets/workspace/workspace-4.jpg"
+                        ])
+                section.partners
+                    div.container
+                        div.partners__titles
+                            +section-title(["our", "partners"], "start", "15")
+                        div.partners__content
+                            +simple-carousel(
+                                [
+                                    "#Amazon_Web_Services",
+                                    "#Angular_js",
+                                    "#Express_js",
+                                    "#MongoDB",
+                                    "#MySQL",
+                                    "#Node_js",
+                                    "#React",
+                                    "#React_Native",
+                                    "#React"
+                                ],
+                                {"class": "partners__carousel"}
+                            )
+
+                section.business
+                    div.container
+                        div.business__firstly
+                            div.business__titles
+                                div.business__card
+                                    +title-card-bg(["What", "we do"])
+                            div.business__services
+                                +carousel-centered([
+                                    [
+                                        "#Web_Design_&_Development",
+                                        "#Web_Application_Development",
+                                        "#Mobile_Application_Development",
+                                        "#Enterprise_Application_Development",
+                                        "#Software_Product_Development"
+                                    ],
+                                    [
+                                        {
+                                            "title": "Web Design & Development",
+                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                        },
+                                        {
+                                            "title": "Web Application Development",
+                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                        },
+                                        {
+                                            "title": "Mobile Application Development",
+                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                        },
+                                        {
+                                            "title": "Enterprise Application Development",
+                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                        },
+                                        {
+                                            "title": "Software Product Development",
+                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                        }
+                                    ]
+                                ], {"class": "services"})
+                        div.business__secondary
+                            div.business__hidden
+                                +title-large-text(["What", "we do"])
+                            div.business__technologies
+                                h3.business__heading Technologies we use:
+                                +simple-carousel(
+                                    [
+                                        "#Amazon_Web_Services",
+                                        "#Angular_js",
+                                        "#Express_js",
+                                        "#MongoDB",
+                                        "#MySQL",
+                                        "#Node_js",
+                                        "#React",
+                                        "#React_Native",
+                                        "#Redux"
+                                    ],
+                                    {"class": "technologies__carousel"}
+                                )
+                section.career
+                    div.container
+                        div.career__titles
+                            +section-title(["careers", "with us"])
+                        div.career__content
+                            h3.career__heading We are looking for:
+                            +vacancy({
+                                "position": "Front-end Developer",
+                                "salary": "16 000-18 000 UAN",
+                                "description": "After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized their technology.",
+                                "icon": "#programer"
+                            })
+                            +vacancy({
+                                "position": "UI/UX Designer",
+                                "salary": "7 000-10 000 UAN",
+                                "description": "After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized their technology.",
+                                "icon": "#designer"
+                            })
+                section.contact
+                    div.container
+                        div.contact__card
+                            +title-card-bg(["Contact", "us"], {"class": "contact__title"})
+                        div.contact__form
+                            +contact-form({
+                                "name": "Your name",
+                                "email": "Your email",
+                                "textarea": "Your message"
+                            })
+            footer.footer
+                div.container.footer__inner
+                    div.footer__nav
+                        +nav(
+                            [
+                                [
+                                    ["about", "#"],
+                                    ["services", "#"],
+                                    ["technologies", "#"],
+                                    ["careers", "#"],
+                                    ["contact", "#"]
+                                ]
+                            ]
+                        )
+                    div.footer__info
+                        +logo("", {"class": "footer__logo"})
+                        div.footer__email
+                            a(href="mailto:company@darkshark.pro") company@darkshark.pro
+                        div.footer__social
+                            +socials([
+                                {
+                                    "href": "#",
+                                    "icon": "#linkedin"
+                                },
+                                {
+                                    "href": "#",
+                                    "icon": "#facebook"
+                                },
+                                {
+                                    "href": "#",
+                                    "icon": "#dou"
+                                }
+                            ])
 
         script(src="bundle.js")
 

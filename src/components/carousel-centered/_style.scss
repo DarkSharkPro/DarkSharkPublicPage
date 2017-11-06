@@ -1,0 +1,21 @@
+.carousel-centered {
+  margin: 0 -15px;
+}
+
+.carousel-centered__image {
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+  transform: scale(0.7);
+  transition: all 0.4s ease;
+}
+
+.carousel-centered__text {
+  padding: 0 20px 20px;
+  background-color: #f9f8f8;
+}
+
+.slick-center .carousel-centered__image {
+  transform: scale(1.2);
+}
+

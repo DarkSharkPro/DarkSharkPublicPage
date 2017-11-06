@@ -1,0 +1,16 @@
+mixin carousel-centered(content, data)
+    div.carousel-centered&attributes(data ? data : {})
+        div.carousel-centered__for
+            for image in content[0]
+                div.carousel-centered__item
+                    div.carousel-centered__image
+                        svg(viewBox="0 0 97 100" preserveAspectRatio="xMinYMin")
+                            use(xlink:href= image)
+
+        div.carousel-centered__nav
+            for item in content[1]
+                div.carousel-centered__description
+                    h4.carousel-centered__title= item.title
+                    p.carousel-centered__text= item.description
+
+

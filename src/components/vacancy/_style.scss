@@ -1,0 +1,66 @@
+.vacancy {
+  margin-bottom: 34px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.vacancy__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.vacancy__icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 18px;
+  background-color: #fff;
+}
+
+.vacancy__position {
+  font-size: 1.26rem;
+  font-weight: 700;
+  line-height: 1.71;
+  color: #161717;
+}
+
+.vacancy__salary {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #dadada;
+}
+
+.vacancy__description {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #999999;
+  margin-bottom: 22px;
+}
+
+.vacancy__btn {
+  text-align: right;
+}
+
+.vacancy__read-more {
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  color: $light;
+  padding: 9px 25px;
+  border-radius: 4px;
+  background-color: $dark-blue;
+  box-shadow: 0 6px 10.92px 1.08px rgba(81, 136, 255, 0.35);
+  border: none;
+  outline: none;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background-color: rgb(104, 150, 252);
+  }
+
+  &:active {
+    box-shadow: 0 6px 10.92px 1.08px rgba(81, 136, 255, 0.35),inset 0 0 21px 0 rgba(27, 98, 255, 0.7);
+  }
+}

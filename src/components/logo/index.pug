@@ -1,3 +1,4 @@
-mixin logo(data)
+mixin logo(logo, data)
     div.logo&attributes(data ? data : {})
-        include ./assets/logo.svg
+        svg(viewBox="0 0 469.9 100.56" preserveAspectRatio="xMinYMin")
+            use(xlink:href="#logo")

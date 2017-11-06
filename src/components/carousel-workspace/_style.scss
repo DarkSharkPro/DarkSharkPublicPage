@@ -1,0 +1,36 @@
+.workspace__image {
+  max-height: 300px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.workspace .slick-list {
+  padding: 0 8% 0 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 15% 0 15%;
+  }
+
+  @media screen and (min-width: 992px) {
+    padding: 0;
+  }
+}
+
+.workspace .slick-slide {
+  margin: 0 6px 0 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+
+.workspace .slick-list {
+  margin: 0 -6px 0 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
