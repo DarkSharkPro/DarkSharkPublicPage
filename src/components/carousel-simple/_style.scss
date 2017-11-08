@@ -1,12 +1,12 @@
 .carousel {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
 .carousel__item {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     width: calc(100% / 3);
     padding: 10px;
 
@@ -22,7 +22,7 @@
   width: 190px;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     padding: 17px;
     background-color: #ffffff;
     filter: grayscale(100%);

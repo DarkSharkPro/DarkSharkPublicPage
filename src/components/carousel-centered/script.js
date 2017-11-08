@@ -18,8 +18,21 @@ export default () => {
             dots: true,
             asNavFor: sliderNavId,
             customPaging: function(slider, i) {
-                return '<span class="slick-dot"></span>';
-            }
+                return '<button class="slick-dot"></button>';
+            },
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        centerMode: false,
+                        dots: false,
+                        arrows: true,
+                        nextArrow: '<button class="slick-arrow"></button>',
+                        prevArrow: '<button class="slick-arrow"></button>'
+                    }
+                }
+            ]
         });
 
         $(sliderNavId).slick({

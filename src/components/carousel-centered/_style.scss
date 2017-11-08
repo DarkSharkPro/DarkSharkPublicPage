@@ -1,5 +1,13 @@
-.carousel-centered {
+.carousel-centered__nav {
   margin: 0 -15px;
+
+  @media  screen and (min-width: $middle) {
+    margin: 0 -30px;
+  }
+
+  @media  screen and (min-width: $large) {
+    display: none;
+  }
 }
 
 .carousel-centered__image {
@@ -8,14 +16,22 @@
   margin: 0 auto;
   transform: scale(0.7);
   transition: all 0.4s ease;
+
+  @media  screen and (min-width: $middle) {
+    transform: scale(0.9);
+  }
 }
 
 .carousel-centered__text {
   padding: 0 20px 20px;
-  background-color: #f9f8f8;
+  background-color: #f5f5f5;
 }
 
 .slick-center .carousel-centered__image {
   transform: scale(1.2);
+
+  @media  screen and (min-width: $middle) {
+    transform: none;
+  }
 }
 

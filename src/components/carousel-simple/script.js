@@ -17,7 +17,7 @@ export default () => {
             }
         ],
         customPaging: function(slider, i) {
-            return '<span class="slick-dot"></span>';
+            return '<button class="slick-dot"></button>';
         }
     });
 }

@@ -18,6 +18,20 @@
 @import "components/input-file/style";
 @import "components/social/style";
 
+.over {
+  @media screen and (min-width: $large){
+    position: relative;
+    &::after {
+      content: '';
+      height: 100%;
+      width: 9999px;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      background-color: $light-grey;
+    }
+  }
+}
 
 /////////////
 // HEADER //
@@ -43,7 +57,7 @@
   fill: $light;
   font-size: 29px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     font-size: 43px;
   }
 }
@@ -51,7 +65,7 @@
 .header__nav {
   display: none;
 
-  @media screen and (min-width: 992px){
+  @media screen and (min-width: $large){
     display: block;
   }
 }
@@ -95,7 +109,11 @@
   background-image: linear-gradient(140deg, #5188ff, #050918);
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: $large) {
     width: 47%;
   }
 }
@@ -103,54 +121,270 @@
 .promo__right {
   display: none;
   background: url("assets/promo-background.png") no-repeat center/cover;
-  width: 53%;
+  width: 50%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     display: block;
+  }
+
+  @media screen and (min-width: $large) {
+    width: 53%;
   }
 }
 
 .promo__right,
 .promo__left {
   height: 100vh;
-  max-height: 771px;
+  max-height: 600px;
+
+  @media screen and (min-width: $large) {
+    max-height: 771px;
+  }
 }
 
-.promo__caption {
-  display: flex;
-  flex-wrap: wrap;
+.promo__greet,
+.promo__text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .promo__greet {
-  display: flex;
-  width: 100%;
-  justify-content: center;
+  top: 43%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+
+  @media screen and (min-width: $small) {
+    left: 50%;
+  }
+
+  @media screen and (min-width: $middle) {
+    top: 50%;
+    left: calc(50% - 63px)
+  }
+
+  @media screen and (min-width: $large) {
+    top: 54%;
+    left: calc(47% - 80px)
+  }
 }
 
-.promo__letter img {
-  height: 227px;
+.promo__text {
+  top: 65%;
+  left: 10%;
+
+  @media screen and (min-width: $small) {
+    font-size: 3.8rem;
+    width: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media screen and (min-width: $middle) {
+    top: 54%;
+    left: calc(50% + 235px);
+    width: 245px;
+  }
+
+  @media screen and (min-width: $large) {
+    width: 315px;
+    top: 56.5%;
+    left: calc(47% + 275px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 415px;
+    top: 52%;
+    left: calc(47% + 360px);
+  }
 }
+
+.promo__title {
+  font-size: 8vmin;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  color: #171717;
+  margin-bottom: 6px;
+
+  @media screen and (min-width: $small) {
+    font-size: 3.8rem;
+  }
+
+  @media screen and (min-width: $middle) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (min-width: $large) {
+    font-size: 3.2rem;
+    margin-bottom: 13px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 4.2rem;
+    margin-bottom: 26px;
+  }
+}
+
+.promo__subtitle {
+  font-size: 4vmin;
+  font-weight: 600;
+  line-height: 1.19;
+  letter-spacing: 0.2px;
+  color: #171717;
+
+  @media screen and (min-width: 480px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: $middle) {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (min-width: $large) {
+    font-size: 1.7rem;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+}
+
+.promo__letter {
+  display: inline-block;
+}
+
+.promo__letter--i {
+  @media screen and (min-width: $middle) {
+    margin-left: 40px;
+  }
+
+  @media screen and (min-width: $large) {
+    margin-left: 60px;
+  }
+}
+
+.promo__greet img {
+  height: 37vmin;
+
+  @media screen and (min-width: 480px) {
+    height: 178px;
+  }
+
+  @media screen and (min-width: $large) {
+    height: 236px;
+  }
+}
+
 
 
 ////////////////////
 // ABOUT SECTION //
 ///////////////////
+
+
 .about__content {
   padding: 24px 0 0;
   font-size: 1.2rem;
   line-height: 1.75;
   text-align: left;
   color: #999;
+  & > p:last-of-type {
+    display: none;
+  }
+
+  @media  screen and (min-width: $middle) {
+    font-size: 1.4rem;
+    width: 66%;
+    padding: 100px 30px 0;
+
+    & > p {
+      margin-bottom: 40px;
+    }
+    & > p:last-of-type {
+      display: block;
+      margin-bottom: 0;
+    }
+
+  }
+
+  @media  screen and (min-width: $large) {
+    padding: 100px 20px 40px 30px;
+  }
+
+  @media  screen and (min-width: $extra) {
+    line-height: 1.8;
+    width: 66%;
+    padding: 100px 10px 88px 80px;
+  }
 }
 
-.about__hidden {
-  display: none;
-  @media  screen and (min-width: 768px){
-    display: block;
+.about__firstly {
+  @media  screen and (min-width: $middle) {
+    display: flex;
+  }
+}
+
+.about__titles {
+  @media  screen and (min-width: $middle) {
+    width: 34%;
+
+    .titles {
+      display: block;
+      height: 100%;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .title-card {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 122px;
+      height: 87px;
+      font-size: 2.1rem;
+    }
+
+    .title-large {
+      margin-right: 0;
+      position: absolute;
+      font-size: 5rem;
+      letter-spacing: 0.4px;
+      text-align: right;
+      bottom: 28%;
+      right: 14%;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    width: 34%;
+
+    .title-large {
+      font-size: 7rem;
+      bottom: 16%;
+      right: 7%;
+      line-height: 0.9;
+    }
+  }
+
+  @media  screen and (min-width: $extra) {
+    .title-card {
+      top: 7%;
+      right: 31%;
+      width: 157px;
+      height: 112px;
+      font-size: 2.7rem;
+
+      svg {
+        left: 24px;
+      }
+    }
+
+    .title-large {
+      font-size: 9rem;
+      bottom: 16%;
+      right: 7%;
+      line-height: 0.9;
+    }
   }
 }
 
@@ -160,6 +394,15 @@
   line-height: 1.5;
   color: $dark;
   margin: 26px 0 28px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 2rem;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 2.7rem;
+    margin: 100px 0 55px;
+  }
 }
 
 .about__card {
@@ -187,19 +430,35 @@
   color: #b7b7b7;
 }
 
+.rewards .carousel-centered__for{
+  @media screen and (min-width: $middle) {
+    margin: 0 50px;
+  }
+
+  @media screen and (min-width: $extra) {
+    margin: 0 100px;
+  }
+}
+
 .rewards .slick-dots {
   margin: 22px 0 0;
 }
 
 .rewards .carousel-centered__title {
-  font-size: 1.1em;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.38;
   color: #5188ff;
   text-align: center;
   margin: 17px 0 0;
   padding: 20px 20px 6px;
-  background-color: #f9f8f8;
+  background-color: #f5f5f5;
+}
+
+.about .container {
+  @media  screen and (min-width: $middle){
+    padding: 0;
+  }
 }
 
 
@@ -315,6 +574,8 @@
 
 .career__content {
   padding: 34px 0;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .career__heading {

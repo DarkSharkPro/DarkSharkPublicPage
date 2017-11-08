@@ -1,3 +1,13 @@
+.workspace {
+  padding: 0 15px 0 8.5px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media screen and (min-width: $middle) {
+    padding: 0;
+  }
+}
+
 .workspace__image {
   max-height: 300px;
 
@@ -10,11 +20,11 @@
 .workspace .slick-list {
   padding: 0 8% 0 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     padding: 0 15% 0 15%;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: $large) {
     padding: 0;
   }
 }
@@ -22,7 +32,7 @@
 .workspace .slick-slide {
   margin: 0 6px 0 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     margin: 0;
   }
 }
@@ -30,7 +40,7 @@
 .workspace .slick-list {
   margin: 0 -6px 0 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $middle) {
     margin: 0;
   }
 }

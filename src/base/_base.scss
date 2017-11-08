@@ -95,7 +95,7 @@ input[type="submit"] {
   font: inherit;
 }
 
-.slick-slide, .slick-slide * { outline: none !important; }
+//.slick-slide, .slick-slide * { outline: none !important; }
 
 .slick-dots {
   text-align: center;
@@ -113,6 +113,8 @@ input[type="submit"] {
   border-radius: 50%;
   transition: all 0.4s ease;
   margin: 0 4px;
+  border: none;
+  padding: 0;
 }
 
 .slick-active .slick-dot {

@@ -12,7 +12,7 @@ export default () => {
                 }
             },
             {
-                breakpoint: 992,
+                breakpoint: 1023,
                 settings: {
                     slidesToShow: 4
                 }
