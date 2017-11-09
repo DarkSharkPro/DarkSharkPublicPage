@@ -95,7 +95,7 @@ input[type="submit"] {
   font: inherit;
 }
 
-//.slick-slide, .slick-slide * { outline: none !important; }
+.slick-slide { outline: none; }
 
 .slick-dots {
   text-align: center;

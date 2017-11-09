@@ -16,6 +16,8 @@ import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 // SVG related plugins
 import svgstore from 'gulp-svgstore';
+import svgSprite from 'gulp-svg-sprite';
+import svgmin from 'gulp-svgmin';
 
 
 
@@ -122,23 +124,40 @@ gulp.task('sprite:compile', () => {
             }
         })
     }))
-    .pipe(svgstore({inlineSvg: true}))
-    .pipe(through2.obj(function (file, encoding, cb) {
-        const $ = cheerio.load(file.contents.toString(), {xmlMode: true});
-        const data = $('svg > symbol').map(function () {
-            return {
-                id: $(this).attr('id'),
-                viewBox: $(this).attr('viewBox')
-            };
-        }).get();
-        const jsonFile = new gutil.File({
-            path: 'metadata.json',
-            contents: new Buffer(JSON.stringify(data))
-        });
-        this.push(jsonFile);
-        this.push(file);
-        cb();
+    .pipe(svgmin({
+        js2svg: {
+            pretty: true
+        }
     }))
+    .pipe(svgSprite({
+        mode: {
+            symbol: {
+                sprite: '../sprite-icons.svg',
+                render: {
+                    scss: {
+                        dest:'../../../base/_sprite.scss',
+                        template: './src/base/_sprite-template.scss'
+                    }
+                }
+            }
+        }
+    }))
+    // .pipe(through2.obj(function (file, encoding, cb) {
+    //     const $ = cheerio.load(file.contents.toString(), {xmlMode: true});
+    //     const data = $('svg > symbol').map(function () {
+    //         return {
+    //             id: $(this).attr('id'),
+    //             viewBox: $(this).attr('viewBox')
+    //         };
+    //     }).get();
+    //     const jsonFile = new gutil.File({
+    //         path: 'metadata.json',
+    //         contents: new Buffer(JSON.stringify(data))
+    //     });
+    //     this.push(jsonFile);
+    //     this.push(file);
+    //     cb();
+    // }))
     .pipe(gulp.dest('./src/assets/sprite'));
 });
 

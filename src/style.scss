@@ -1,6 +1,7 @@
 @import "base/variables";
 @import "base/base";
 @import "base/layout";
+@import "base/sprite";
 @import "../node_modules/slick-carousel/slick/slick.scss";
 @import "components/logo/style";
 @import "components/hamburger/style";
@@ -18,17 +19,25 @@
 @import "components/input-file/style";
 @import "components/social/style";
 
-.over {
-  @media screen and (min-width: $large){
+.grey {
+  @media screen and (min-width: $large) {
     position: relative;
+
     &::after {
       content: '';
       height: 100%;
       width: 9999px;
       position: absolute;
       top: 0;
-      right: 100%;
       background-color: $light-grey;
+    }
+
+    &--left::after {
+      right: 100%;
+    }
+
+    &--right::after {
+      left: 100%;
     }
   }
 }
@@ -53,7 +62,7 @@
   align-items: center;
 }
 
-.header__logo svg {
+.header__logo .icon{
   fill: $light;
   font-size: 29px;
 
@@ -309,6 +318,10 @@
 
   @media  screen and (min-width: $large) {
     padding: 100px 20px 40px 30px;
+
+    .carousel-centered__nav {
+      display: none;
+    }
   }
 
   @media  screen and (min-width: $extra) {
@@ -330,9 +343,8 @@
 
     .titles {
       display: block;
-      height: 100%;
-      margin: 0;
       padding-left: 0;
+      margin-right: 0;
     }
 
     .title-card {
@@ -405,6 +417,8 @@
   }
 }
 
+
+
 .about__card {
   background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
   background-repeat: no-repeat;
@@ -430,15 +444,7 @@
   color: #b7b7b7;
 }
 
-.rewards .carousel-centered__for{
-  @media screen and (min-width: $middle) {
-    margin: 0 50px;
-  }
 
-  @media screen and (min-width: $extra) {
-    margin: 0 100px;
-  }
-}
 
 .rewards .slick-dots {
   margin: 22px 0 0;
@@ -466,7 +472,14 @@
 // PARTNERS SECTION //
 //////////////////////
 .partners__content {
-  padding: 25px 0 55px;
+  padding: 26px 0 55px;
+
+  @media screen and (min-width: $middle) {
+    order: 1;
+    width: 64%;
+    padding-bottom: 26px;
+    padding-right: 30px;
+  }
 }
 
 .partners__carousel .slick-dots {
@@ -482,6 +495,42 @@
 .partners__titles {
   .title-large {
     margin-right: -60px;
+
+    @media screen and (min-width: $middle) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $middle) {
+    order: 2;
+    width: 36%;
+
+    .titles {
+      margin-left: 0;
+    }
+
+    .title-card {
+      width: 163px;
+      height: 86px;
+      font-size: 2rem;
+      position: absolute;
+      top: 18%;
+      right: 27%;
+    }
+  }
+
+  @media screen and (min-width: $large) {
+    .title-card {
+      font-size: 2.7rem;
+      width: 210px;
+      height: 110px;
+    }
+  }
+}
+
+.partners__inner {
+  @media  screen and (min-width: $middle){
+    display: flex;
   }
 }
 
@@ -489,6 +538,23 @@
 ///////////////////////
 // BUSINESS SECTION //
 //////////////////////
+.business__secondary,
+.business__firstly {
+  @media  screen and (min-width: $middle) {
+    display: flex;
+  }
+}
+
+.business__titles {
+  @media  screen and (min-width: $middle) {
+    width: 36%;
+  }
+}
+
+.business__services {
+  width: 64%;
+}
+
 .business__card {
   background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
   background-repeat: no-repeat;
@@ -496,10 +562,26 @@
   position: relative;
   padding: 98px 0;
   margin: 0 -15px;
+
+  @media  screen and (min-width: $middle) {
+    margin-left: -15px;
+    margin-right: 0;
+  }
 }
 
 .business__hidden {
   display: none;
+
+  @media  screen and (min-width: $middle) {
+    display: block;
+    width: 36%;
+    background-color: $light-grey;
+    margin-left: -15px;
+  }
+}
+
+.business__titles {
+
 }
 
 .business__heading {
@@ -514,6 +596,9 @@
 
 .business__technologies {
   padding: 32px 0 45px;
+  @media  screen and (min-width: $middle){
+    width: 64%;
+  }
 }
 
 .services {
@@ -642,12 +727,11 @@
 }
 
 .footer__logo {
-  font-size: 27px;
-  line-height: 0;
   margin-bottom: 30px;
 
-  svg {
+  .icon-logo--logo {
     fill: #000;
+    font-size: 27px;
   }
 }
 

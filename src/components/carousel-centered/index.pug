@@ -1,11 +1,16 @@
+include ../icon/index
+
 mixin carousel-centered(content, data)
     div.carousel-centered&attributes(data ? data : {})
+        button.carousel-centered__arrow.prev
+            +icon('arrow-l')
+        button.carousel-centered__arrow.next
+            +icon('arrow-r')
         div.carousel-centered__for
             for image in content[0]
                 div.carousel-centered__item
                     div.carousel-centered__image
-                        svg(viewBox="0 0 97 100" preserveAspectRatio="xMinYMin")
-                            use(xlink:href= image)
+                        +icon(image)
 
         div.carousel-centered__nav
             for item in content[1]

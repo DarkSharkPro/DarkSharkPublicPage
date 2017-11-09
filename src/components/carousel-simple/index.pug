@@ -1,7 +1,8 @@
+include ../icon/index
+
 mixin simple-carousel(content, data)
     div.carousel&attributes(data ? data : {})
         for image in content
             div.carousel__item
                 div.carousel__inner
-                    svg(viewBox="0 0 182 106" preserveAspectRatio="xMinYMin")
-                        use(xlink:href= image)
+                    +icon(image)
