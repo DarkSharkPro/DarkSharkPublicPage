@@ -39,5 +39,16 @@
       font-size: 5rem;
     }
   }
+
+  @media screen and (min-width: $middle) {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  @media screen and (min-width: $extra) {
+    .icon {
+      font-size: 6rem;
+    }
+  }
 }
 

@@ -1,0 +1,25 @@
+include ../icon/index
+include ../social/index
+
+mixin line()
+    div.line
+        div.line__upload-cv
+            button(type="button").line__button
+                +icon('cv')
+            span.line__text send your CV
+        +socials([
+            {
+                "href": "#",
+                "icon": "linkedin"
+            },
+            {
+                "href": "#",
+                "icon": "facebook"
+            },
+            {
+                "href": "#",
+                "icon": "dou"
+            }
+        ], {"class": "line__social"})
+
+

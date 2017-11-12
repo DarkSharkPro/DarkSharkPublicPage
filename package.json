@@ -41,6 +41,8 @@
     ]
   },
   "dependencies": {
+    "debounce": "^1.1.0",
+    "hamburgers": "^0.9.1",
     "jquery": "^3.2.1"
   }
 }

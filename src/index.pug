@@ -11,13 +11,14 @@ include ./components/stats/index
 include ./components/vacancy/index
 include ./components/contact-form/index
 include ./components/social/index
+include ./components/line/index
 
 
 doctype html
 html(lang='en')
     head
         meta(charset="utf-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700")
         link(rel="stylesheet", href="style.css")
 
@@ -37,12 +38,26 @@ html(lang='en')
                                 ["services", "#"],
                                 ["technologies", "#"],
                                 ["careers", "#"],
-                                ["contact", "#"]
+                                ["contacts", "#"]
                             ],
                             0
                         ],
                         {"class": "header__nav"}
                     )
+                    +socials([
+                        {
+                            "href": "#",
+                            "icon": "facebook"
+                        },
+                        {
+                            "href": "#",
+                            "icon": "dou"
+                        },
+                        {
+                            "href": "#",
+                            "icon": "linkedin"
+                        }
+                    ], {"class": "header__social"})
             main.main
                 section.promo
                     div.promo__left
@@ -57,10 +72,11 @@ html(lang='en')
                     div.promo__text
                         h1.promo__title We are DarkShark!
                         p.promo__subtitle We create software for people and their business.
+                    +line()
                 section.about
                     div.container
-                        div.about__firstly
-                            div.about__titles.grey.grey--left
+                        div.about__firstly.grey.grey--left
+                            div.about__titles
                                 +section-title(["about", "us"])
                             div.about__content
                                 p After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized that his true passion was for helping organizations with their technology. And from that passion, ItCon was born. After being in business a short time, he realized that many companies were being underserved and were constantly “putting out technology fires” that never should have happened in the first place.
@@ -103,12 +119,12 @@ html(lang='en')
                                     "number": "345"
                                 },
                                 {
-                                    "title": "Projects",
-                                    "number": "150"
-                                },
-                                {
                                     "title": "Cup of coffee",
                                     "number": "3.456"
+                                },
+                                {
+                                    "title": "Projects",
+                                    "number": "150"
                                 }
                             ])
                             div.about__card
@@ -149,7 +165,7 @@ html(lang='en')
 
                 section.business
                     div.container
-                        div.business__firstly
+                        div.business__firstly.grey.grey--left
                             div.business__titles
                                 div.business__card
                                     +title-card-bg(["What", "we do"])
@@ -185,7 +201,7 @@ html(lang='en')
                                         }
                                     ]
                                 ], {"class": "services"})
-                        div.business__secondary
+                        div.business__secondary.grey.grey--left
                             div.business__hidden
                                 +title-large-text(["What", "we do"])
                             div.business__technologies
@@ -205,8 +221,8 @@ html(lang='en')
                                     {"class": "technologies__carousel"}
                                 )
                 section.career
-                    div.container
-                        div.career__titles
+                    div.container.career__inner
+                        div.career__titles.grey.grey--right
                             +section-title(["careers", "with us"])
                         div.career__content
                             h3.career__heading We are looking for:
@@ -214,16 +230,16 @@ html(lang='en')
                                 "position": "Front-end Developer",
                                 "salary": "16 000-18 000 UAN",
                                 "description": "After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized their technology.",
-                                "icon": "#programer"
+                                "icon": "programer"
                             })
                             +vacancy({
                                 "position": "UI/UX Designer",
                                 "salary": "7 000-10 000 UAN",
                                 "description": "After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized their technology.",
-                                "icon": "#designer"
+                                "icon": "designer"
                             })
                 section.contact
-                    div.container
+                    div.container.contact__inner
                         div.contact__card
                             +title-card-bg(["Contact", "us"], {"class": "contact__title"})
                         div.contact__form
@@ -233,36 +249,69 @@ html(lang='en')
                                 "textarea": "Your message"
                             })
             footer.footer
-                div.container.footer__inner
-                    div.footer__nav
-                        +nav(
-                            [
+                div.container
+                    div.footer__mobile
+                        div.footer__nav
+                            +nav(
                                 [
-                                    ["about", "#"],
-                                    ["services", "#"],
-                                    ["technologies", "#"],
-                                    ["careers", "#"],
-                                    ["contact", "#"]
+                                    [
+                                        ["about", "#"],
+                                        ["services", "#"],
+                                        ["technologies", "#"],
+                                        ["careers", "#"],
+                                        ["contact", "#"]
+                                    ]
                                 ]
-                            ]
-                        )
-                    div.footer__info
-                        +logo("", {"class": "footer__logo"})
-                        div.footer__email
-                            a(href="mailto:company@darkshark.pro") company@darkshark.pro
+                            )
+                        div.footer__info
+                            +logo("", {"class": "footer__logo"})
+                            div.footer__email
+                                a(href="mailto:company@darkshark.pro") !{"<svg class='icon icon-envelope' preserveAspectRatio='xMinYMin'><use xlink:href='#envelope'></use></svg>"} company@darkshark.pro
+                            div.footer__social
+                                +socials([
+                                    {
+                                        "href": "#",
+                                        "icon": "linkedin"
+                                    },
+                                    {
+                                        "href": "#",
+                                        "icon": "facebook"
+                                    },
+                                    {
+                                        "href": "#",
+                                        "icon": "dou"
+                                    }
+                                ])
+                    div.footer__desktop
+                        div.footer__info
+                            +logo("", {"class": "footer__logo"})
+                            div.footer__nav
+                                +nav(
+                                    [
+                                        [
+                                            ["about", "#"],
+                                            ["services", "#"],
+                                            ["technologies", "#"],
+                                            ["careers", "#"],
+                                            ["contacts", "#"]
+                                        ]
+                                    ]
+                                )
+                            div.footer__email
+                                a(href="mailto:company@darkshark.pro") !{"<svg class='icon icon-envelope' preserveAspectRatio='xMinYMin'><use xlink:href='#envelope'></use></svg>"} company@darkshark.pro
                         div.footer__social
                             +socials([
                                 {
                                     "href": "#",
-                                    "icon": "#linkedin"
+                                    "icon": "linkedin"
                                 },
                                 {
                                     "href": "#",
-                                    "icon": "#facebook"
+                                    "icon": "facebook"
                                 },
                                 {
                                     "href": "#",
-                                    "icon": "#dou"
+                                    "icon": "dou"
                                 }
                             ])
 

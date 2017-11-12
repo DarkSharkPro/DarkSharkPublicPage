@@ -21,24 +21,6 @@
   .icon {
     font-size: 80px;
   }
-
-  @media  screen and (min-width: $large) {
-    transform: scale(1);
-
-    .icon {
-      font-size: 60px;
-    }
-  }
-
-  @media  screen and (min-width: $extra) {
-    .icon {
-      font-size: 80px;
-    }
-
-    .icon.icon-rewards--int20h {
-      font-size: 75px;
-    }
-  }
 }
 
 .carousel-centered__text {
@@ -64,7 +46,7 @@
   position: absolute;
   top: 10%;
   line-height: 0;
-  display: none;
+  display: none!important;
 
   .icon {
     fill: $dark-grey;
@@ -81,7 +63,7 @@
   }
 
   @media screen and (min-width: $middle) {
-    display: block;
+    display: inline-block!important;
   }
 
   @media screen and (min-width: $large) {

@@ -1,3 +1,4 @@
+@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
 @import "base/variables";
 @import "base/base";
 @import "base/layout";
@@ -18,6 +19,7 @@
 @import "components/contact-form/style";
 @import "components/input-file/style";
 @import "components/social/style";
+@import "components/line/style";
 
 .grey {
   @media screen and (min-width: $large) {
@@ -102,6 +104,26 @@
       background-color: #5184f0;
     }
   }
+}
+
+.header__social {
+  display: none;
+
+  .social__item {
+    box-shadow: none;
+    background-color: transparent;
+    width: auto;
+  }
+
+  .social__link .icon {
+    fill: $dark-blue;
+    font-size: 2vh;
+  }
+
+  .social__link:hover .icon {
+    fill: $light;
+  }
+
 }
 
 
@@ -285,7 +307,6 @@
 }
 
 
-
 ////////////////////
 // ABOUT SECTION //
 ///////////////////
@@ -313,15 +334,10 @@
       display: block;
       margin-bottom: 0;
     }
-
   }
 
   @media  screen and (min-width: $large) {
     padding: 100px 20px 40px 30px;
-
-    .carousel-centered__nav {
-      display: none;
-    }
   }
 
   @media  screen and (min-width: $extra) {
@@ -417,8 +433,6 @@
   }
 }
 
-
-
 .about__card {
   background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
   background-repeat: no-repeat;
@@ -426,14 +440,33 @@
   position: relative;
   padding: 98px 0;
   margin: 0 -15px;
+
+  @media screen and (min-width: $extra) {
+    .title-card-css {
+      font-size: 2.7rem;
+      width: 162px;
+      height: 134px;
+    }
+  }
 }
 
 .about__ceo {
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 1.84;
-  text-align: left;
   color: #999999;
   padding: 22px 0 30px;
+
+  p {
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $large) {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .rewards {
@@ -444,10 +477,36 @@
   color: #b7b7b7;
 }
 
-
-
 .rewards .slick-dots {
   margin: 22px 0 0;
+}
+
+.rewards .carousel-centered__nav {
+  @media  screen and (min-width: $large) {
+    display: none;
+  }
+}
+
+.rewards .carousel-centered__image {
+  @media  screen and (min-width: $large) {
+    transform: scale(1);
+  }
+
+  @media  screen and (min-width: $extra) {
+    .icon {
+      font-size: 60px;
+    }
+  }
+
+  @media  screen and (min-width: $extra) {
+    .icon {
+      font-size: 80px;
+    }
+
+    .icon.icon-rewards--int20h {
+      font-size: 75px;
+    }
+  }
 }
 
 .rewards .carousel-centered__title {
@@ -462,8 +521,58 @@
 }
 
 .about .container {
-  @media  screen and (min-width: $middle){
+  @media  screen and (min-width: $middle) {
     padding: 0;
+  }
+}
+
+.about__secondary {
+  display: block;
+
+  @media  screen and (min-width: $middle) {
+    display: flex;
+
+    .stats {
+      width: 30%;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    .stats {
+      width: 32%;
+    }
+  }
+}
+
+.about__card {
+  @media  screen and (min-width: $middle) {
+    width: 30%;
+    margin: 0;
+  }
+
+  @media  screen and (min-width: $large) {
+    width: 28%;
+  }
+
+  @media  screen and (min-width: $extra) {
+    width: 32%;
+  }
+}
+.about__ceo {
+  @media  screen and (min-width: $middle) {
+    width: 40%;
+    font-size: 1.4rem;
+    padding-left: 22px;
+    padding-right: 15px;
+  }
+
+  @media  screen and (min-width: $large) {
+    padding: 80px 15px 40px 24px;
+  }
+
+  @media  screen and (min-width: $extra) {
+    width: 36%;
+    padding: 114px 15px 64px 80px;
   }
 }
 
@@ -472,18 +581,21 @@
 // PARTNERS SECTION //
 //////////////////////
 .partners__content {
-  padding: 26px 0 55px;
+  padding: 32px 0;
 
   @media screen and (min-width: $middle) {
     order: 1;
     width: 64%;
-    padding-bottom: 26px;
-    padding-right: 30px;
+    padding: 13px 30px 13px 0;
+  }
+
+  @media screen and (min-width: $extra) {
+    width: 60%;
   }
 }
 
 .partners__carousel .slick-dots {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .partners__carousel .slick-dot {
@@ -526,6 +638,15 @@
       height: 110px;
     }
   }
+
+  @media screen and (min-width: $extra) {
+    width: 40%;
+
+    .title-card {
+      top: 14%;
+      right: 26%;
+    }
+  }
 }
 
 .partners__inner {
@@ -538,6 +659,12 @@
 ///////////////////////
 // BUSINESS SECTION //
 //////////////////////
+.business .container {
+  @media  screen and (min-width: $middle) {
+    padding: 0;
+  }
+}
+
 .business__secondary,
 .business__firstly {
   @media  screen and (min-width: $middle) {
@@ -549,10 +676,32 @@
   @media  screen and (min-width: $middle) {
     width: 36%;
   }
+
+  @media screen and (min-width: $extra) {
+    width: 32%;
+  }
 }
 
 .business__services {
-  width: 64%;
+  padding: 32px 15px 0;
+
+  @media  screen and (min-width: $middle) {
+    width: 64%;
+    padding: 70px 30px 0;
+
+    .carousel-centered__for .icon {
+      font-size: 11rem;
+    }
+  }
+
+  @media screen and (min-width: $extra) {
+    padding-top: 80px;
+    width: 68%;
+
+    .carousel-centered__for .icon {
+      font-size: 14rem;
+    }
+  }
 }
 
 .business__card {
@@ -564,24 +713,62 @@
   margin: 0 -15px;
 
   @media  screen and (min-width: $middle) {
-    margin-left: -15px;
-    margin-right: 0;
+    margin: 0;
+    height: 100%;
+
+    .title-card-css {
+      width: 122px;
+      height: 85px;
+      padding-right: 20px;
+      font-size: 2rem;
+      top: 23%;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    .title-card-css {
+      width: 157px;
+      height: 109px;
+      font-size: 2.7rem;
+    }
   }
 }
 
 .business__hidden {
   display: none;
+  position: relative;
 
   @media  screen and (min-width: $middle) {
     display: block;
     width: 36%;
     background-color: $light-grey;
-    margin-left: -15px;
+
+    .title-large {
+      text-align: right;
+      margin-right: 0;
+      position: absolute;
+      font-size: 5rem;
+      letter-spacing: 0.4px;
+      bottom: 15%;
+      right: 10%;
+    }
   }
-}
 
-.business__titles {
+  @media  screen and (min-width: $large) {
+    .title-large {
+      font-size: 7rem;
+      bottom: 12%;
+      right: 10%;
+    }
+  }
 
+  @media  screen and (min-width: $extra) {
+    width: 32%;
+
+    .title-large {
+      font-size: 9rem;
+    }
+  }
 }
 
 .business__heading {
@@ -591,13 +778,32 @@
   letter-spacing: 0.1px;
   text-align: left;
   color: #171717;
-  margin-bottom: 6px;
+  margin-bottom: 24px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 2.2rem;
+    width: 600px;
+    margin: 0 auto 26px;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 2.7rem;
+    width: 600px;
+    margin: 0 auto 46px;
+  }
 }
 
 .business__technologies {
-  padding: 32px 0 45px;
+  padding: 32px 0;
+
   @media  screen and (min-width: $middle){
+    padding: 50px 15px 13px 30px;
     width: 64%;
+  }
+
+  @media  screen and (min-width: $extra){
+    width: 68%;
+    padding: 68px 0 30px;
   }
 }
 
@@ -606,7 +812,23 @@
   line-height: 1.75;
   text-align: center;
   color: #999999;
-  padding: 32px 0 0;
+
+  @media  screen and (min-width: $middle){
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+
+  @media  screen and (min-width: $extra){
+    line-height: 1.8;
+  }
+}
+
+.services .carousel-centered__arrow {
+  top: 13%;
+
+  @media  screen and (min-width: $large){
+    top: 12%;
+  }
 }
 
 .services svg  {
@@ -631,14 +853,35 @@
   color: #171717;
   text-align: center;
   margin: 17px 0 22px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 1.5rem;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
+.services .carousel-centered__nav {
+  margin: 0 -30px;
 }
 
 .services .carousel-centered__text {
   padding-top: 13px;
+
+  @media  screen and (min-width: $large) {
+    padding: 36px;
+  }
+
+  @media  screen and (min-width: $extra) {
+    padding: 46px 120px 74px;
+  }
 }
 
 .technologies__carousel .slick-dots {
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .technologies__carousel .slick-dot {
@@ -651,16 +894,71 @@
 /////////////////////
 // CAREER SECTION //
 ////////////////////
+.career__inner {
+  @media  screen and (min-width: $middle) {
+    display: flex;
+  }
+}
+
 .career__titles {
   .title-large {
     margin-right: -60px;
   }
+
+  @media  screen and (min-width: $middle) {
+    order: 2;
+    width: 40%;
+
+    .titles {
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .title-large {
+      margin-right: 0;
+      position: absolute;
+      font-size: 5rem;
+      letter-spacing: 0.4px;
+      left: 9%;
+      bottom: 28%;
+    }
+
+    .title-card {
+      display: none;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    .title-large {
+      font-size: 7rem;
+    }
+  }
+
+  @media  screen and (min-width: $extra) {
+    .title-large {
+      font-size: 8rem;
+      left: 7%;
+    }
+  }
 }
 
 .career__content {
-  padding: 34px 0;
+  padding: 32px 0;
   max-width: 560px;
   margin: 0 auto;
+
+  @media  screen and (min-width: $middle) {
+    order: 1;
+    width: 60%;
+    padding: 60px 34px 50px 0;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  @media  screen and (min-width: $extra) {
+    padding-top: 88px;
+    padding-bottom: 70px;
+  }
 }
 
 .career__heading {
@@ -669,6 +967,16 @@
   letter-spacing: 0.1px;
   color: #171717;
   margin-bottom: 24px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 2.1rem;
+    margin-bottom: 39px;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 2.7rem;
+    margin-bottom: 53px;
+  }
 }
 
 
@@ -678,10 +986,33 @@
 .contact {
   background-image: linear-gradient(305deg, #050918, #4879e5);
   padding: 24px 0;
+
+  @media  screen and (min-width: $middle) {
+    padding: 58px 0;
+  }
+
+  @media  screen and (min-width: $extra) {
+    padding: 117px 0;
+  }
+}
+
+.contact__inner {
+  @media  screen and (min-width: $middle) {
+    display: flex;
+  }
 }
 
 .contact__card {
-  position: relative;
+  @media  screen and (min-width: $middle) {
+    position: relative;
+    width: 50%;
+  }
+}
+
+.contact__form {
+  @media  screen and (min-width: $middle) {
+    width: 50%;
+  }
 }
 
 .contact__title {
@@ -690,6 +1021,27 @@
   width: 125px;
   height: 55px;
   margin-bottom: 40px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 5rem;
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 5%;
+    transform: none;
+    top: 0;
+  }
+
+  @media  screen and (min-width: $large) {
+    font-size: 7rem;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 9rem;
+  }
 }
 
 
@@ -697,17 +1049,37 @@
 //////// FOOTER ////////
 ////////////////////////
 .footer {
-  padding: 25px 0 31px;
+  padding: 30px 0 30px;
+  
+  @media  screen and (min-width: $middle) {
+    background-color: #f9f8f8;
+  }
 }
 
-.footer__inner {
+.footer__desktop {
+  display: none;
+
+  @media  screen and (min-width: $middle) {
+    display: block;
+  }
+}
+
+.footer__mobile {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @media  screen and (min-width: $small) {
+    flex-direction: column;
+  }
+
+  @media  screen and (min-width: $middle) {
+    display: none;
+  }
 }
 
 .footer__nav {
-  width: 50%;
+  width: 45%;
 
   .nav__list {
     display: block;
@@ -720,18 +1092,84 @@
       margin-bottom: 0;
     }
   }
+
+  @media  screen and (min-width: $small) {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 30px;
+
+    .nav__list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav__list-item {
+      margin-bottom: 0;
+    }
+  }
+
+  @media  screen and (min-width: $middle) {
+    margin: 0;
+    max-width: 100%;
+
+    .nav__list {
+      justify-content: center;
+    }
+
+    .nav__list-item {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (min-width: $extra){
+    .nav__list-item {
+      margin-right: 25px;
+      margin-left: 25px;
+    }
+  }
 }
 
 .footer__info {
-  width: 50%;
+  width: 55%;
+
+  @media  screen and (min-width: $small) {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media  screen and (min-width: $middle) {
+    max-width: 100%;
+    margin: 0 0 25px;
+    flex-wrap: nowrap;
+  }
 }
 
 .footer__logo {
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 
   .icon-logo--logo {
     fill: #000;
     font-size: 27px;
+  }
+
+  @media  screen and (min-width: $small) {
+    margin-bottom: 0;
+  }
+
+  @media  screen and (min-width: $large) {
+    .icon-logo--logo {
+      font-size: 37px;
+    }
   }
 }
 
@@ -744,5 +1182,35 @@
   a {
     color: inherit;
     text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .icon {
+    vertical-align: middle;
+    font-size: 1.6rem;
+    margin-right: 7px;
+  }
+
+  @media  screen and (min-width: $small) {
+    margin-bottom: 0;
+  }
+
+  @media  screen and (min-width: $large) {
+    font-size: 1.2rem;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 1.4rem;
+  }
+}
+
+.footer__social {
+  @media  screen and (min-width: $middle) {
+    text-align: center;
+
+    .social__item {
+      width: 34px;
+      height: 34px;
+    }
   }
 }

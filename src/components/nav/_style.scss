@@ -5,12 +5,65 @@
 }
 
 .nav__list-item {
-  margin: 0 16px;
-}
+  margin: 0 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
 
+  @media screen and (min-width: $extra) {
+    margin: 0 19px;
+  }
+}
 
 .nav__list-link {
   display: block;
   color: inherit;
+  font-size: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $dark-blue;
+  }
+}
+
+.nav-is-open {
+  overflow: hidden;
+  position: fixed;
+}
+
+.nav-is-open .header__social {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  bottom: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-is-open .header__nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3456a6;
+  z-index: 1;
+  padding-top: 8vh;
+}
+
+.nav-is-open .header__nav .nav__list {
+  flex-direction: column;
+}
+
+.nav-is-open .header__nav .nav__list-item {
+  color: $light;
+  margin: 0;
+  font-size: 2.8vh;
+  text-align: center;
+  line-height: 10vh;
+}
+
+.nav-is-open .header__nav .nav__list-item.is-active::after {
+  display: none;
 }

@@ -1,12 +1,85 @@
 .stats {
   padding: 28px 0 38px;
+
+  @media  screen and (min-width: $middle) {
+    padding: 0;
+    position: relative;
+  }
 }
 
 .stats__list {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 
+  @media  screen and (min-width: $middle) {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      background-color: #f5f5f5;
+      height: 74%;
+      top: 13%;
+      left: calc(50% - 2px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: #f5f5f5;
+      width: 80%;
+      left: 10%;
+      top: calc(50% - 2px);
+    }
+  }
+
+  @media  screen and (min-width: $middle) {
+    height: 200px;
+
+    &::before {
+      width: 70%;
+      left: 15%;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    height: 300px;
+
+    &::before {
+      width: 60%;
+      left: 20%;
+    }
+  }
+}
+
+.stats__item {
+  text-align: center;
+
+  @media  screen and (min-width: $middle) {
+    width: 50%;
+    padding: 16px;
+
+    &:nth-child(odd) {
+      text-align: right;
+    }
+
+    &:nth-child(even) {
+      text-align: left;
+    }
+  }
+
+  @media  screen and (min-width: $large) {
+    padding: 40px;
+  }
 }
 
 .stats__number {
@@ -14,8 +87,15 @@
   font-weight: 500;
   color: #171717;
   display: block;
-  text-align: center;
   margin-bottom: 8px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 2.7rem;
+  }
+
+  @media  screen and (min-width: $extra) {
+    font-size: 4rem;
+  }
 }
 
 .stats__title {
@@ -25,5 +105,8 @@
   letter-spacing: 0.2px;
   color: #dadada;
   display: block;
-  text-align: center;
+
+  @media  screen and (min-width: $extra) {
+    font-size: 1.2rem;
+  }
 }

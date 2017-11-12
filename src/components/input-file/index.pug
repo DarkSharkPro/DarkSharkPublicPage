@@ -1,8 +1,9 @@
+include ../icon/index
+
 mixin input-file(data)
     input(type="file" class="file" name="" id="file" tabindex="-1")
     label(for="file" tabindex="0")
-        svg(viewBox="0 0 40 20" preserveAspectRatio="xMinYMin")
-            use(xlink:href="#cv")
+        +icon('cv')
     span.file__name Upload your resume (Optional)
 
 

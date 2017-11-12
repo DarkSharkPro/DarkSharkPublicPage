@@ -7,20 +7,20 @@
   border-radius: 50%;
   margin-right: 22px;
 
-  svg {
-    fill: #fff;
-    transform: scale(0.5);
-  }
-
   &:last-child {
     margin-right: 0;
-
-    svg {
-      transform: scale(0.9);
-    }
   }
 }
 
 .social__link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .icon {
+    font-size: 10px;
+    fill: #fff;
+  }
 }

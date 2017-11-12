@@ -3,12 +3,14 @@ import workspaceCarousel from './components/carousel-workspace/script';
 import simpleCarousel from './components/carousel-simple/script';
 import carouselCentered from './components/carousel-centered/script';
 import fileInputMask from './components/input-file/script';
+import toggleMenu from './components/nav/script';
 
 
 workspaceCarousel();
 simpleCarousel();
 carouselCentered();
 fileInputMask();
+toggleMenu();
 
 // // todo
 // import spritesData from '../dist/assets/metadata.json';

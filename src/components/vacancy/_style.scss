@@ -4,19 +4,40 @@
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media  screen and (min-width: $middle) {
+    margin-bottom: 40px;
+  }
+
+  @media  screen and (min-width: $large) {
+    margin-bottom: 30px;
+  }
+
 }
 
 .vacancy__header {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+
+  @media  screen and (min-width: $large) {
+    margin-bottom: 0;
+  }
 }
 
 .vacancy__icon {
-  width: 50px;
-  height: 50px;
   margin-right: 18px;
   background-color: #fff;
+
+  .icon {
+    font-size: 50px;
+  }
+
+  @media  screen and (min-width: $middle) {
+    .icon {
+      font-size: 60px;
+    }
+  }
 }
 
 .vacancy__position {
@@ -24,12 +45,24 @@
   font-weight: 700;
   line-height: 1.71;
   color: #161717;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 1.5rem;
+  }
+
+  @media  screen and (min-width: $large) {
+    font-size: 1.7rem;
+  }
 }
 
 .vacancy__salary {
   font-size: 0.9rem;
   font-weight: 700;
   color: #dadada;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 1.2rem;
+  }
 }
 
 .vacancy__description {
@@ -37,10 +70,20 @@
   line-height: 1.75;
   color: #999999;
   margin-bottom: 22px;
+
+  @media  screen and (min-width: $middle) {
+    font-size: 1.4rem;
+    padding-left: 78px;
+  }
 }
 
 .vacancy__btn {
   text-align: right;
+
+  @media  screen and (min-width: $middle) {
+    text-align: left;
+    padding-left: 78px;
+  }
 }
 
 .vacancy__read-more {
