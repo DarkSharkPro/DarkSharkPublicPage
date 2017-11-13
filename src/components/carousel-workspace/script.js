@@ -1,9 +1,11 @@
 export default () => {
     $('.workspace__carousel').slick({
         slidesToShow: 1,
-        arrows: false,
+        arrows: true,
         dots: false,
         mobileFirst: true,
+        nextArrow: $('.workspace__arrow.next'),
+        prevArrow: $('.workspace__arrow.prev'),
         responsive: [
             {
                 breakpoint: 420,

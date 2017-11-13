@@ -2,6 +2,7 @@
   padding: 0 15px 0 8.5px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 
   @media screen and (min-width: $middle) {
     padding: 0;
@@ -43,4 +44,33 @@
   @media screen and (min-width: $middle) {
     margin: 0;
   }
+}
+
+.workspace__arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.5;
+  background-color: $light;
+  border: none;
+  width: 35px;
+  transition: opacity 0.4s;
+  display: none!important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (min-width: $large) {
+    display: block!important;
+  }
+}
+
+.workspace__arrow.prev {
+  left: 0;
+}
+
+.workspace__arrow.next {
+  right: 0;
 }

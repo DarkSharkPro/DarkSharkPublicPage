@@ -28,14 +28,13 @@
 
 .nav-is-open {
   overflow: hidden;
-  position: fixed;
 }
 
 .nav-is-open .header__social {
   display: block;
   position: fixed;
-  z-index: 1;
-  bottom: 6vh;
+  z-index: 5;
+  bottom: 15vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -48,7 +47,7 @@
   right: 0;
   bottom: 0;
   background-color: #3456a6;
-  z-index: 1;
+  z-index: 5;
   padding-top: 8vh;
 }
 

@@ -34,13 +34,12 @@ html(lang='en')
                     +nav(
                         [
                             [
-                                ["about", "#"],
-                                ["services", "#"],
-                                ["technologies", "#"],
-                                ["careers", "#"],
-                                ["contacts", "#"]
-                            ],
-                            0
+                                ["about", "#about"],
+                                ["services", "#services"],
+                                ["technologies", "#technologies"],
+                                ["careers", "#career"],
+                                ["contacts", "#contact"]
+                            ]
                         ],
                         {"class": "header__nav"}
                     )
@@ -73,7 +72,7 @@ html(lang='en')
                         h1.promo__title We are DarkShark!
                         p.promo__subtitle We create software for people and their business.
                     +line()
-                section.about
+                section#about.about.js-scroll-to
                     div.container
                         div.about__firstly.grey.grey--left
                             div.about__titles
@@ -95,15 +94,15 @@ html(lang='en')
                                             "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
                                         },
                                         {
-                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "title": "Winner of int20h Space Apps Challenge hackathon.",
                                             "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
                                         },
                                         {
-                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "title": "Winner of space-apps.",
                                             "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
                                         },
                                         {
-                                            "title": "Winner of NASA Space Apps Challenge hackathon.",
+                                            "title": "Winner of kh-js.",
                                             "description": "Our team (4 developers and 1 UX/UI designer) have won in NASA Space Apps Challenge Hackathon 29-30.04.17. We've created service which consists of the mobile app and desktop app for fire departments - FireProb."
                                         }
                                     ]
@@ -165,7 +164,7 @@ html(lang='en')
 
                 section.business
                     div.container
-                        div.business__firstly.grey.grey--left
+                        div#services.business__firstly.grey.grey--left.js-scroll-to
                             div.business__titles
                                 div.business__card
                                     +title-card-bg(["What", "we do"])
@@ -201,7 +200,7 @@ html(lang='en')
                                         }
                                     ]
                                 ], {"class": "services"})
-                        div.business__secondary.grey.grey--left
+                        div#technologies.business__secondary.grey.grey--left.js-scroll-to
                             div.business__hidden
                                 +title-large-text(["What", "we do"])
                             div.business__technologies
@@ -220,7 +219,7 @@ html(lang='en')
                                     ],
                                     {"class": "technologies__carousel"}
                                 )
-                section.career
+                section#career.career.js-scroll-to
                     div.container.career__inner
                         div.career__titles.grey.grey--right
                             +section-title(["careers", "with us"])
@@ -238,7 +237,7 @@ html(lang='en')
                                 "description": "After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized their technology.",
                                 "icon": "designer"
                             })
-                section.contact
+                section#contact.contact.js-scroll-to
                     div.container.contact__inner
                         div.contact__card
                             +title-card-bg(["Contact", "us"], {"class": "contact__title"})
@@ -289,11 +288,11 @@ html(lang='en')
                                 +nav(
                                     [
                                         [
-                                            ["about", "#"],
-                                            ["services", "#"],
-                                            ["technologies", "#"],
-                                            ["careers", "#"],
-                                            ["contacts", "#"]
+                                            ["about", "#about"],
+                                            ["services", "#services"],
+                                            ["technologies", "#technologies"],
+                                            ["careers", "#career"],
+                                            ["contacts", "#contact"]
                                         ]
                                     ]
                                 )

@@ -1,5 +1,9 @@
 mixin workspace-carousel(content, data)
     div.workspace
+        button.workspace__arrow.prev
+            +icon('arrow-l')
+        button.workspace__arrow.next
+            +icon('arrow-r')
         div.workspace__carousel
             for image in content
                 div.workspace__image

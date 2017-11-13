@@ -1,6 +1,6 @@
 .hamburger {
   display: block;
-  z-index: 2;
+  z-index: 6;
   outline: none;
 
   @media screen and (min-width: $large) {
@@ -16,8 +16,6 @@
     }
   }
 }
-
-
 
 .hamburger-inner,
 .hamburger-inner::before,

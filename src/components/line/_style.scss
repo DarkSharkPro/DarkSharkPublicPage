@@ -6,7 +6,7 @@
   left: calc(47% + 650px);
   background-color: $light;
   display: none;
-  z-index: 3;
+  z-index: 6;
 
   @media screen and (min-width: 1330px) {
     display: flex;
@@ -75,10 +75,6 @@
   .social__link .icon {
     fill: $dark;
     font-size: 1.1rem
-  }
-
-  .social__link .icon-dou {
-    font-size: 1.3rem;
   }
 
   .social__link:hover .icon {

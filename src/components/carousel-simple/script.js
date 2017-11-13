@@ -1,4 +1,4 @@
-import debounce from 'debounce';
+import debounce from 'lodash.debounce';
 
 export default () => {
     $('.carousel').on('destroy', function(ev, slick) {
@@ -7,7 +7,7 @@ export default () => {
                 if (slick.activeBreakpoint < window.innerWidth) return;
                 carousel.slick(slick.options);
                 window.removeEventListener('resize', reinit);
-            }, 200);
+            }, 100);
         window.addEventListener('resize', reinit);
     }).slick({
         slidesToShow: 1,

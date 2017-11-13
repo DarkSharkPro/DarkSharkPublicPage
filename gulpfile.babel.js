@@ -15,7 +15,6 @@ import webpackConfig from './webpack.config';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 // SVG related plugins
-import svgstore from 'gulp-svgstore';
 import svgSprite from 'gulp-svg-sprite';
 import svgmin from 'gulp-svgmin';
 
@@ -29,9 +28,6 @@ import vinylPaths from 'vinyl-paths';
 import gulpif from 'gulp-if';
 import sourcemaps from 'gulp-sourcemaps';
 import cache from 'gulp-cache';
-import gutil from 'gulp-util';
-import cheerio from 'cheerio';
-import through2 from 'through2';
 
 // Browser related plugins
 import browserSync from 'browser-sync';
@@ -142,22 +138,6 @@ gulp.task('sprite:compile', () => {
             }
         }
     }))
-    // .pipe(through2.obj(function (file, encoding, cb) {
-    //     const $ = cheerio.load(file.contents.toString(), {xmlMode: true});
-    //     const data = $('svg > symbol').map(function () {
-    //         return {
-    //             id: $(this).attr('id'),
-    //             viewBox: $(this).attr('viewBox')
-    //         };
-    //     }).get();
-    //     const jsonFile = new gutil.File({
-    //         path: 'metadata.json',
-    //         contents: new Buffer(JSON.stringify(data))
-    //     });
-    //     this.push(jsonFile);
-    //     this.push(file);
-    //     cb();
-    // }))
     .pipe(gulp.dest('./src/assets/sprite'));
 });
 
@@ -179,7 +159,7 @@ gulp.task('cache:clear', (cb) => {
 gulp.task('watch', () => {
     gulp.watch(['./src/index.pug', './src/components/**/*.pug']).on('change', gulp.series('templates:compile'));
     gulp.watch(['./src/style.scss', './src/components/**/*.scss']).on('change', gulp.series('styles:compile'));
-    gulp.watch('./src/components/**/*.js').on('change', gulp.series('scripts:compile', reload));
+    gulp.watch(['./src/app.js', './src/components/**/*.js']).on('change', gulp.series('scripts:compile', reload));
 });
 
 

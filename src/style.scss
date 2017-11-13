@@ -1,9 +1,9 @@
-@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
 @import "base/variables";
+@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+@import "../node_modules/slick-carousel/slick/slick.scss";
 @import "base/base";
 @import "base/layout";
 @import "base/sprite";
-@import "../node_modules/slick-carousel/slick/slick.scss";
 @import "components/logo/style";
 @import "components/hamburger/style";
 @import "components/nav/style";
@@ -20,6 +20,16 @@
 @import "components/input-file/style";
 @import "components/social/style";
 @import "components/line/style";
+
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .grey {
   @media screen and (min-width: $large) {
@@ -55,7 +65,41 @@
   left: 0;
   right: 0;
   top: 0;
-  z-index: 3;
+  z-index: 6;
+}
+
+.header.is-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  padding: 12px 0;
+  background-image: linear-gradient(140deg, #5188ff, #050918);
+  animation: slide-down 0.4s ease;
+
+  .nav__list-item {
+    color: $light;
+  }
+
+  .nav__list-item.is-active::after {
+    bottom: -5px;
+  }
+
+  .header__logo .icon {
+    font-size: 30px;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+      background-color: #fff;
+  }
+
+  .hamburger--spring.is-active .hamburger-inner {
+    background: transparent;
+  }
+
 }
 
 .header__container {
@@ -117,13 +161,13 @@
 
   .social__link .icon {
     fill: $dark-blue;
-    font-size: 2vh;
+    font-size: 3vh;
+    transition: fill 0.4s;
   }
 
   .social__link:hover .icon {
     fill: $light;
   }
-
 }
 
 
