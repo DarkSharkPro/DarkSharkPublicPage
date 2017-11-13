@@ -99,8 +99,3 @@ function highlightNavigation() {
         }
     });
 }
-
-// if ($this.closest('.nav').hasClass('header__nav')) {
-//     $this.parent().siblings().removeClass('is-active');
-//     $this.parent().addClass('is-active');
-// }

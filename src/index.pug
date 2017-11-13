@@ -35,10 +35,9 @@ html(lang='en')
                         [
                             [
                                 ["about", "#about"],
-                                ["services", "#services"],
-                                ["technologies", "#technologies"],
+                                ["what we do", "#business"],
                                 ["careers", "#career"],
-                                ["contacts", "#contact"]
+                                ["contact", "#contact"]
                             ]
                         ],
                         {"class": "header__nav"}
@@ -162,9 +161,9 @@ html(lang='en')
                                     {"class": "partners__carousel"}
                                 )
 
-                section.business
+                section#business.business.js-scroll-to
                     div.container
-                        div#services.business__firstly.grey.grey--left.js-scroll-to
+                        div.business__firstly.grey.grey--left.js-scroll-to
                             div.business__titles
                                 div.business__card
                                     +title-card-bg(["What", "we do"])
@@ -200,7 +199,7 @@ html(lang='en')
                                         }
                                     ]
                                 ], {"class": "services"})
-                        div#technologies.business__secondary.grey.grey--left.js-scroll-to
+                        div.business__secondary.grey.grey--left
                             div.business__hidden
                                 +title-large-text(["What", "we do"])
                             div.business__technologies
@@ -254,11 +253,10 @@ html(lang='en')
                             +nav(
                                 [
                                     [
-                                        ["about", "#"],
-                                        ["services", "#"],
-                                        ["technologies", "#"],
-                                        ["careers", "#"],
-                                        ["contact", "#"]
+                                        ["about", "#about"],
+                                        ["what we do", "#business"],
+                                        ["careers", "#career"],
+                                        ["contact", "#contact"]
                                     ]
                                 ]
                             )
@@ -289,10 +287,9 @@ html(lang='en')
                                     [
                                         [
                                             ["about", "#about"],
-                                            ["services", "#services"],
-                                            ["technologies", "#technologies"],
+                                            ["what we do", "#business"],
                                             ["careers", "#career"],
-                                            ["contacts", "#contact"]
+                                            ["contact", "#contact"]
                                         ]
                                     ]
                                 )

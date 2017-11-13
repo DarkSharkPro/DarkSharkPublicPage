@@ -7,7 +7,7 @@ import pug from 'gulp-pug';
 // CSS related plugins
 import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
-import cssnano from 'cssnano';
+import cleanCSS from 'gulp-clean-css';
 
 // JS related plugins
 import webpackStream from 'webpack-stream';
@@ -85,7 +85,7 @@ gulp.task('styles:compile', () => {
         .pipe(sass())
         .pipe(autoprefixer({browsers: ['last 1 version']}))
         .pipe(gulpif(isDevelopment, sourcemaps.write('')))
-        .pipe(gulpif(!isDevelopment, cssnano()))
+        .pipe(gulpif(!isDevelopment, cleanCSS()))
         .pipe(gulp.dest('./dist'))
         .pipe(server.stream());
 });
