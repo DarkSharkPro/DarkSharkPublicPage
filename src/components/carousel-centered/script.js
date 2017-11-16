@@ -28,6 +28,7 @@ export default () => {
             arrows: true,
             dots: true,
             asNavFor: sliderNavId,
+            infinite: true,
             customPaging: function(slider, i) {
                 return '<button class="slick-dot"></button>';
             },

@@ -1,8 +1,7 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 60">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 60">
     <defs>
         <style>.amazon-1{fill:#f90;}.amazon-2{stroke:#000;stroke-width:0.59px;}</style>
     </defs>
-    <title>1</title>
     <path class="amazon-1" d="M19.32,56.76,10.5,53.6V40.67l8.82,3V56.76Z"/>
     <path class="amazon-1" d="M20.93,56.76l8.82-3.16V40.67l-8.82,3V56.76Z"/>
     <path class="amazon-1" d="M11.4,39.71l8.92-2.51,8.28,2.67-8.28,2.81-8.92-3Z"/>

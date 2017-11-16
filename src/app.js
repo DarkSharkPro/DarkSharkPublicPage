@@ -1,4 +1,5 @@
 import slick from 'slick-carousel';
+import validate from 'jquery-validation';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 import Tooltip from 'tooltip.js';
@@ -99,3 +100,99 @@ function highlightNavigation() {
         }
     });
 }
+
+// $('.form').validate({
+//     rules: {
+//         username: {
+//             required: true
+//         },
+//         email: {
+//             required: true,
+//             email: true
+//         },
+//         message: {
+//             required: true
+//         }
+//     },
+//     messages {
+//
+//     }
+// });
+
+$('.form').submit(function(e) {
+    e.preventDefault();
+    const $form = $(this);
+    const data = new FormData($form[0]);
+    const $inputs = $('.form__input');
+    const $loader = $('.form__loader');
+    const $success = $('.form__success');
+    const $fail = $('.form__fail');
+    const $file = $('.file__name');
+
+    if ( $inputs.hasClass('is-error') ) {
+        $inputs.removeClass('is-error');
+        $inputs.next('.form__error').remove();
+    }
+
+    $form.addClass('is-blur');
+    $loader.addClass('is-visible');
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3012/mail',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false
+    }).done(response => {
+
+        $loader.removeClass('is-visible');
+
+        if (response.errors) {
+            $form.removeClass('is-blur');
+            response.errors.forEach(item => {
+                const $input = $(`[name=${item.param}]`);
+                $input.addClass('is-error');
+                $input.after(`<span class="form__error">${item.msg}</span>`);
+            })
+        } else {
+            $success.addClass('is-visible');
+
+            setTimeout(function () {
+                $form.removeClass('is-blur');
+                $success.removeClass('is-visible');
+                $form[0].reset();
+                $file.text('Upload your resume (Optional)');
+
+                $inputs.siblings('.form__label').removeClass('is-focus')
+            }, 3000);
+
+        }
+    }).fail(error => {
+        $loader.removeClass('is-visible');
+        $fail.addClass('is-visible');
+        setTimeout(function () {
+            $form.removeClass('is-blur');
+            $fail.removeClass('is-visible');
+        }, 2000);
+    });
+});
+
+const $inputs = $('.form__input');
+$inputs.on('input', function () {
+    const $this = $(this);
+    $this.removeClass('is-error');
+    $this.siblings('.form__error').remove();
+    $this.siblings('.form__label').addClass('is-focus');
+});
+
+$inputs.on('focus', function () {
+    const $this = $(this);
+    $this.siblings('.form__label').addClass('is-focus');
+});
+
+$inputs.on('blur', function () {
+    const $this = $(this);
+    if ($this.val() === '')
+        $this.siblings('.form__label').removeClass('is-focus');
+});

@@ -1,16 +1,35 @@
 include ../input-file/index
 
 mixin contact-form(content, data)
-    form.form
+    form.form(type="POST")
         div.form__group.form__group--inputs
             div.form__field
-                input.form__input(type="text" name="" placeholder= content.name)
+                input.form__input(type="text" name="username" id="name" autocomplete="off")
+                label.form__label(for="name")= content.name
             div.form__field
-                input.form__input(type="email" name="" placeholder= content.email)
+                input.form__input(type="email" name="email" autocomplete="off")
+                label.form__label(for="name")= content.email
         div.form__textarea
-            textarea.form__input.form__input--textarea(name="" placeholder= content.textarea)
+            textarea.form__input.form__input--textarea(name="message" autocomplete="off")
+            label.form__label(for="name")= content.textarea
         div.form__group.form__group--buttons
             div.form__field
                 input.form__submit(type="submit" value="Send")
             div.form__file
                 +input-file()
+    div.form__loader
+        div.spinner
+            div.spinner__bounce1
+            div.spinner__bounce2
+    div.form__success
+        svg.checkmark(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 52 52')
+            circle.checkmark__circle(cx='26', cy='26', r='25', fill='none')
+            path.checkmark__check(fill='none', d='M14.1 27.2l7.1 7.2 16.7-16.8')
+        span.form__status-text Thanks!
+    div.form__fail
+        svg.cross(version='1.1', xmlns='http://www.w3.org/2000/svg', viewbox='0 0 130.2 130.2')
+            circle.cross__circle(fill='none', cx='65.1', cy='65.1', r='62.1')
+            line.cross__line(fill='none', x1='34.4', y1='37.9', x2='95.8', y2='92.3')
+            line.cross__line(fill='none', x1='95.8', y1='38', x2='34.4', y2='92.2')
+        span.form__status-text Please try again!
+

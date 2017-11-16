@@ -21,6 +21,10 @@
 @import "components/social/style";
 @import "components/line/style";
 
+.is-error {
+  box-shadow: 0 2px 0 0 $danger;
+}
+
 
 @keyframes slide-down {
   0% {
@@ -1047,6 +1051,7 @@
 }
 
 .contact__card {
+  margin-bottom: 58px;
   @media  screen and (min-width: $middle) {
     position: relative;
     width: 50%;
@@ -1054,6 +1059,7 @@
 }
 
 .contact__form {
+  position: relative;
   @media  screen and (min-width: $middle) {
     width: 50%;
   }
@@ -1064,7 +1070,6 @@
   transform: none;
   width: 125px;
   height: 55px;
-  margin-bottom: 40px;
 
   @media  screen and (min-width: $middle) {
     font-size: 5rem;

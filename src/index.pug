@@ -77,8 +77,8 @@ html(lang='en')
                             div.about__titles
                                 +section-title(["about", "us"])
                             div.about__content
-                                p After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized that his true passion was for helping organizations with their technology. And from that passion, ItCon was born. After being in business a short time, he realized that many companies were being underserved and were constantly “putting out technology fires” that never should have happened in the first place.
-                                p That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitability and workflow to increase quickly, which has led to our slogan. After being in business a short time.
+                                p DarkShark is a development center, based in Kharkiv, Ukraine. Our team is composed of young motivated goal-oriented specialists and professionals with great experience in JavaScript, full stack development and web design. We provide outsource and outstaff services to reliable constant customers and startups in the USA, Europe and Israel.
+                                p Challenging projects are the top priority for us because we are not afraid to deal with complex tasks, always ready to grow and produce high-quality products. We are willing to learn, develop and obtain new skills, this is why we take part and win competitions:
                                 h3.about__heading Our rewards:
                                 +carousel-centered([
                                     [
@@ -128,8 +128,9 @@ html(lang='en')
                             div.about__card
                                 +title-card-bg(["Our", "work-", "space"])
                             div.about__ceo
-                                p After graduating with a degree in IT in 2008, our founder and CIO was met with a terrible job market. Unable to find a job, he realized that his true passion was for helping organizations with their technology. And from that passion
-                                p That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years.
+                                p Our office is not just a place where people come to spend 8 hours, performing some mechanical actions. It’s our way to motivate the employees, reflect the philosophy of our company and working principles. There are no strict rules or schedule, we work for results. That’s why we strive to create home comfort and friendly environment to avoid monotonous work. No open spaces or other traditional office ‘benefits’.
+                                p Every employee has an opportunity to concentrate on work in one of our 5-person rooms. The relax zone is a premise with kitchen and X-Box, where we can always have lunch, communicate and share our ideas and experience. In addition, there is an opportunity to stretch on a climbing frame after long work in front of a computer screen or take a shower after a bike ride.
+                                p Convenient transport interchange and subway in a walking distance.
                     +workspace-carousel([
                         "./assets/workspace/workspace-1.jpg",
                         "./assets/workspace/workspace-2.jpg",
@@ -148,22 +149,22 @@ html(lang='en')
                             div.partners__content
                                 +simple-carousel(
                                     [
-                                        "techno--amazon",
-                                        "techno--angular",
-                                        "techno--express",
-                                        "techno--mongo",
-                                        "techno--mysql",
                                         "techno--node",
                                         "techno--react",
                                         "techno--react-n",
-                                        "techno--redux"
+                                        "techno--redux",
+                                        "techno--mongo",
+                                        "techno--mysql",
+                                        "techno--amazon",
+                                        "techno--express",
+                                        "techno--angular"
                                     ],
                                     {"class": "partners__carousel"}
                                 )
 
                 section#business.business.js-scroll-to
                     div.container
-                        div.business__firstly.grey.grey--left.js-scroll-to
+                        div.business__firstly.grey.grey--left
                             div.business__titles
                                 div.business__card
                                     +title-card-bg(["What", "we do"])
@@ -173,28 +174,23 @@ html(lang='en')
                                         "service--design",
                                         "service--web-dev",
                                         "service--mobile-dev",
-                                        "service--ent-dev",
-                                        "service--soft-dev"
+                                        "service--ent-dev"
                                     ],
                                     [
                                         {
-                                            "title": "Web Design & Development",
-                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                            "title": "FIXED PRICE",
+                                            "description": "The advantage of the fixed price model is a set final budget. Every project is provisionally estimated by our team of experts. The price is mutually agreed before the start of a project and cannot be changed."
                                         },
                                         {
-                                            "title": "Web Application Development",
-                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                            "title": "TIME AND MATERIAL",
+                                            "description": "The most wide-spread model of partnership which allows you to pay for the services of the developers according to the time spent. You can monitor the process using time tracking software."
                                         },
                                         {
-                                            "title": "Mobile Application Development",
-                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
+                                            "title": "OFFSHORE DEDICATED DEVELOPMENT TEAM",
+                                            "description": "Our company provides a bound team of specialists with experience of working together ready to meet individual requirements of a customer. You have an opportunity to manage our team as employees of your own company."
                                         },
                                         {
                                             "title": "Enterprise Application Development",
-                                            "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
-                                        },
-                                        {
-                                            "title": "Software Product Development",
                                             "description": "That led to their proprietary method of keeping networks healthy at all times, and has thrilled our clients for years. We have a unique approach to technology that allows your profitabilit. After being in business a short time."
                                         }
                                     ]
@@ -206,15 +202,15 @@ html(lang='en')
                                 h3.business__heading Technologies we use:
                                 +simple-carousel(
                                     [
-                                        "techno--amazon",
-                                        "techno--angular",
-                                        "techno--express",
-                                        "techno--mongo",
-                                        "techno--mysql",
                                         "techno--node",
                                         "techno--react",
                                         "techno--react-n",
-                                        "techno--redux"
+                                        "techno--redux",
+                                        "techno--mongo",
+                                        "techno--mysql",
+                                        "techno--amazon",
+                                        "techno--express",
+                                        "techno--angular"
                                     ],
                                     {"class": "technologies__carousel"}
                                 )
@@ -246,6 +242,7 @@ html(lang='en')
                                 "email": "Your email",
                                 "textarea": "Your message"
                             })
+
             footer.footer
                 div.container
                     div.footer__mobile
