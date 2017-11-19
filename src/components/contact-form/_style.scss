@@ -8,12 +8,13 @@
   top: 10px;
   transition: 0.3s ease all;
   font-size: 1.4rem;
+  transform: translate3d(0,0,0);
   color: rgba(249, 248, 248, 0.5);
   pointer-events: none;
 }
 
 .form__label.is-focus {
-  transform: translateY(-20px);
+  transform: translate3d(0,-20px,0);
   font-size:1rem;
   color: $dark-blue;
 }
@@ -26,6 +27,10 @@
 
     &--buttons {
       margin-bottom: 0;
+
+      .form__field {
+        margin-bottom: 28px;
+      }
     }
 
     &--inputs {
@@ -47,14 +52,20 @@
       display: block;
     }
 
-    &--buttons .form__field {
-      margin-bottom: 0;
+    &--buttons {
+      div {
+        width: calc(50% - 9px);
+      }
+
+      .form__field {
+        margin-bottom: 0;
+      }
     }
   }
 }
 
 .form__field {
-  margin-bottom: 46px;
+  margin-bottom: 42px;
   position: relative;
 
   &--submit {

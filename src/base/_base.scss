@@ -90,6 +90,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input::-webkit-textfield-decoration-container {
+  visibility: hidden;
+}
+
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;

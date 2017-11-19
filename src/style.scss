@@ -11,7 +11,6 @@
 @import "components/title-large-text/style";
 @import "components/title-card-bg/style";
 @import "components/title-card/style";
-@import "components/stats/style";
 @import "components/carousel-workspace/style";
 @import "components/carousel-simple/style";
 @import "components/carousel-centered/style";
@@ -25,13 +24,51 @@
   box-shadow: 0 2px 0 0 $danger;
 }
 
+.with-line {
+  position: relative;
+
+  &:before {
+    display: none;
+    content: "";
+    position: absolute;
+    background: url("./assets/black_line.svg") no-repeat center/100%;
+    width: 50px;
+    height: 10px;
+    left: 0;
+    top: -48px;
+
+    @media screen and (min-width: $large) {
+      display: block;
+    }
+  }
+}
+
+.with-line--first::before {
+  @media screen and (min-width: $middle) {
+    display: block;
+  }
+}
+
 
 @keyframes slide-down {
   0% {
     transform: translateY(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }
 
@@ -61,6 +98,13 @@
 /////////////
 // HEADER //
 ////////////
+.header.is-fixed.slide-down {
+  animation-name: slide-down;
+}
+
+.header.is-fixed.slide-up {
+  animation-name: slide-up;
+}
 
 .header {
   padding: 15px 0;
@@ -70,6 +114,8 @@
   right: 0;
   top: 0;
   z-index: 6;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
 }
 
 .header.is-fixed {
@@ -80,7 +126,7 @@
   z-index: 7;
   padding: 12px 0;
   background-image: linear-gradient(140deg, #5188ff, #050918);
-  animation: slide-down 0.4s ease;
+  opacity: 0;
 
   .nav__list-item {
     color: $light;
@@ -97,13 +143,12 @@
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
-      background-color: #fff;
+      background-color: $light;
   }
 
   .hamburger--spring.is-active .hamburger-inner {
     background: transparent;
   }
-
 }
 
 .header__container {
@@ -280,7 +325,7 @@
   font-size: 8vmin;
   font-weight: 700;
   letter-spacing: -0.1px;
-  color: #171717;
+  color: $dark;
   margin-bottom: 6px;
 
   @media screen and (min-width: $small) {
@@ -307,7 +352,7 @@
   font-weight: 600;
   line-height: 1.19;
   letter-spacing: 0.2px;
-  color: #171717;
+  color: $dark;
 
   @media screen and (min-width: 480px) {
     font-size: 2rem;
@@ -361,13 +406,18 @@
 
 
 .about__content {
+  position: relative;
   padding: 24px 0 0;
   font-size: 1.2rem;
   line-height: 1.75;
   text-align: left;
-  color: #999;
+  color: $dark-grey;
+
+  & > p {
+    margin-bottom: 6px;
+  }
   & > p:last-of-type {
-    display: none;
+    margin-bottom: 0;
   }
 
   @media  screen and (min-width: $middle) {
@@ -378,10 +428,6 @@
     & > p {
       margin-bottom: 40px;
     }
-    & > p:last-of-type {
-      display: block;
-      margin-bottom: 0;
-    }
   }
 
   @media  screen and (min-width: $large) {
@@ -391,7 +437,7 @@
   @media  screen and (min-width: $extra) {
     line-height: 1.8;
     width: 66%;
-    padding: 100px 10px 88px 80px;
+    padding: 108px 10px 88px 80px;
   }
 }
 
@@ -413,7 +459,7 @@
 
     .title-card {
       position: absolute;
-      top: 10%;
+      top: 7%;
       right: 10%;
       width: 122px;
       height: 87px;
@@ -477,43 +523,7 @@
 
   @media  screen and (min-width: $extra) {
     font-size: 2.7rem;
-    margin: 100px 0 55px;
-  }
-}
-
-.about__card {
-  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  padding: 98px 0;
-  margin: 0 -15px;
-
-  @media screen and (min-width: $extra) {
-    .title-card-css {
-      font-size: 2.7rem;
-      width: 162px;
-      height: 134px;
-    }
-  }
-}
-
-.about__ceo {
-  font-size: 1.2rem;
-  line-height: 1.84;
-  color: #999999;
-  padding: 22px 0 30px;
-
-  p {
-    margin-bottom: 6px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    @media screen and (min-width: $large) {
-      margin-bottom: 40px;
-    }
+    margin: 80px 0 55px;
   }
 }
 
@@ -526,7 +536,7 @@
 }
 
 .rewards .slick-dots {
-  margin: 22px 0 0;
+  margin: 26px 0 0;
 }
 
 .rewards .carousel-centered__nav {
@@ -564,7 +574,7 @@
   color: #5188ff;
   text-align: center;
   margin: 17px 0 0;
-  padding: 20px 20px 6px;
+  padding: 22px 20px 8px;
   background-color: #f5f5f5;
 }
 
@@ -575,52 +585,67 @@
 }
 
 .about__secondary {
-  display: block;
-
   @media  screen and (min-width: $middle) {
     display: flex;
-
-    .stats {
-      width: 30%;
-    }
-  }
-
-  @media  screen and (min-width: $large) {
-    .stats {
-      width: 32%;
-    }
   }
 }
 
 .about__card {
+  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("./assets/workspace-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 98px 0;
+  margin: 0 -15px;
+
   @media  screen and (min-width: $middle) {
-    width: 30%;
+    width: 32%;
     margin: 0;
   }
 
-  @media  screen and (min-width: $large) {
-    width: 28%;
-  }
-
   @media  screen and (min-width: $extra) {
-    width: 32%;
+    .title-card-css {
+      font-size: 2.7rem;
+      width: 162px;
+      height: 134px;
+    }
   }
 }
-.about__ceo {
+
+.about__office {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #999999;
+  padding: 22px 0 30px;
+
+  p {
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   @media  screen and (min-width: $middle) {
-    width: 40%;
+    width: 68%;
     font-size: 1.4rem;
     padding-left: 22px;
     padding-right: 15px;
+    order: -1;
   }
 
   @media  screen and (min-width: $large) {
     padding: 80px 15px 40px 24px;
+
+    p {
+      margin-bottom: 10px;
+    }
   }
 
   @media  screen and (min-width: $extra) {
-    width: 36%;
-    padding: 114px 15px 64px 80px;
+    padding: 108px 15px 52px 0;
+    line-height: 1.85;
   }
 }
 
@@ -628,16 +653,27 @@
 ///////////////////////
 // PARTNERS SECTION //
 //////////////////////
+.partners .container {
+  @media  screen and (min-width: $middle) {
+    padding: 0;
+  }
+}
+
 .partners__content {
   padding: 32px 0;
 
   @media screen and (min-width: $middle) {
     order: 1;
     width: 64%;
-    padding: 13px 30px 13px 0;
+    padding: 15px;
+  }
+
+  @media screen and (min-width: $large) {
+    padding: 23px;
   }
 
   @media screen and (min-width: $extra) {
+    padding: 55px 35px 55px 0;
     width: 60%;
   }
 }
@@ -654,7 +690,7 @@
 
 .partners__titles {
   .title-large {
-    margin-right: -60px;
+    margin-right: -85px;
 
     @media screen and (min-width: $middle) {
       display: none;
@@ -670,30 +706,27 @@
     }
 
     .title-card {
-      width: 163px;
+      width: 150px;
       height: 86px;
       font-size: 2rem;
       position: absolute;
       top: 18%;
-      right: 27%;
+      right: 24%;
     }
   }
 
   @media screen and (min-width: $large) {
     .title-card {
       font-size: 2.7rem;
-      width: 210px;
-      height: 110px;
+      width: 200px;
+      top: 17%;
+      right: 30%;
+      height: 100px;
     }
   }
 
   @media screen and (min-width: $extra) {
     width: 40%;
-
-    .title-card {
-      top: 14%;
-      right: 26%;
-    }
   }
 }
 
@@ -735,27 +768,30 @@
 
   @media  screen and (min-width: $middle) {
     width: 64%;
-    padding: 70px 30px 0;
+    padding: 56px 30px 0;
 
     .carousel-centered__for .icon {
-      font-size: 11rem;
+      font-size: 6.5rem;
+    }
+  }
+
+  @media  screen and (min-width: $middle) {
+    .carousel-centered__for .icon {
+      font-size: 9rem;
     }
   }
 
   @media screen and (min-width: $extra) {
-    padding-top: 80px;
+    padding-top: 120px;
     width: 68%;
-
-    .carousel-centered__for .icon {
-      font-size: 14rem;
-    }
   }
 }
 
 .business__card {
-  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("assets/workspace-background.jpg");
+  background-image: linear-gradient(140deg, rgba(4,62,187,0.7), rgba(5,9,24,1)), url("./assets/services-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   position: relative;
   padding: 98px 0;
   margin: 0 -15px;
@@ -815,6 +851,9 @@
 
     .title-large {
       font-size: 9rem;
+
+      bottom: 30%;
+      right: 11%;
     }
   }
 }
@@ -836,22 +875,22 @@
 
   @media  screen and (min-width: $extra) {
     font-size: 2.7rem;
-    width: 600px;
-    margin: 0 auto 46px;
+    width: 100%;
+    padding-left: 50px;
   }
 }
 
-.business__technologies {
+.business__partners {
   padding: 32px 0;
 
   @media  screen and (min-width: $middle){
-    padding: 50px 15px 13px 30px;
+    padding: 49px 15px 23px 15px;
     width: 64%;
   }
 
   @media  screen and (min-width: $extra){
     width: 68%;
-    padding: 68px 0 30px;
+    padding: 65px 0 55px 35px;
   }
 }
 
@@ -862,45 +901,46 @@
   color: #999999;
 
   @media  screen and (min-width: $middle){
-    font-size: 1.4rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
 
-  @media  screen and (min-width: $extra){
+  @media  screen and (min-width: $large){
+    font-size: 1.4rem;
     line-height: 1.8;
   }
 }
 
 .services .carousel-centered__arrow {
-  top: 13%;
+  top: 9%;
 
-  @media  screen and (min-width: $large){
-    top: 12%;
+  @media  screen and (min-width: $extra){
+    top: 7%;
   }
 }
 
-.services svg  {
+.services .icon  {
   fill: #dadada;
   stroke: #dadada;
 }
 
-.services .slick-center svg  {
+.services .slick-center .icon {
   fill: $dark-blue;
   stroke: $dark-blue;
 }
 
 .services .slick-dots {
-  margin-top: 6px;
+  margin-top: 16px;
 }
 
 .services .carousel-centered__title {
-  font-size: 1.32rem;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.37;
   letter-spacing: 0.7px;
   color: #171717;
   text-align: center;
-  margin: 17px 0 22px;
+  margin: 28px 0;
 
   @media  screen and (min-width: $middle) {
     font-size: 1.5rem;
@@ -909,6 +949,7 @@
   @media  screen and (min-width: $extra) {
     font-size: 1.8rem;
     margin-bottom: 30px;
+    margin-top: 40px;
   }
 }
 
@@ -919,12 +960,16 @@
 .services .carousel-centered__text {
   padding-top: 13px;
 
+  @media  screen and (min-width: $middle) {
+    padding: 22px 36px;
+  }
+
   @media  screen and (min-width: $large) {
     padding: 36px;
   }
 
   @media  screen and (min-width: $extra) {
-    padding: 46px 120px 74px;
+    padding: 46px 110px 60px;
   }
 }
 
@@ -942,6 +987,12 @@
 /////////////////////
 // CAREER SECTION //
 ////////////////////
+.career .container {
+  @media  screen and (min-width: $extra) {
+    padding: 0;
+  }
+}
+
 .career__inner {
   @media  screen and (min-width: $middle) {
     display: flex;
@@ -1004,7 +1055,7 @@
   }
 
   @media  screen and (min-width: $extra) {
-    padding-top: 88px;
+    padding-top: 68px;
     padding-bottom: 70px;
   }
 }
@@ -1051,7 +1102,7 @@
 }
 
 .contact__card {
-  margin-bottom: 58px;
+  margin-bottom: 53px;
   @media  screen and (min-width: $middle) {
     position: relative;
     width: 50%;
@@ -1135,7 +1186,7 @@
   }
 
   .nav__list-item {
-    margin: 0 0 16px;
+    margin: 0 0 23px;
 
     &:last-child {
       margin-bottom: 0;
@@ -1149,11 +1200,11 @@
 
     .nav__list {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .nav__list-item {
-      margin-bottom: 0;
+      margin: 0 17px;
     }
   }
 

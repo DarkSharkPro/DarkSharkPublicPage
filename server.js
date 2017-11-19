@@ -9,7 +9,7 @@ const validator = require('express-validator');
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -30,8 +30,6 @@ app.post('/mail', function(req, res) {
 
     const errors = req.validationErrors();
     if (errors) {
-        // res.render('create', { errors: errors });
-        // res.status(422).send(errors);
         res.send({ errors });
         return;
     }

@@ -18,7 +18,7 @@
 .vacancy__header {
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 
   @media  screen and (min-width: $large) {
     margin-bottom: 0;
@@ -30,18 +30,18 @@
   background-color: #fff;
 
   .icon {
-    font-size: 50px;
+    font-size: 5rem;
   }
 
   @media  screen and (min-width: $middle) {
     .icon {
-      font-size: 60px;
+      font-size: 6rem;
     }
   }
 }
 
 .vacancy__position {
-  font-size: 1.26rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.71;
   color: #161717;
@@ -52,16 +52,6 @@
 
   @media  screen and (min-width: $large) {
     font-size: 1.7rem;
-  }
-}
-
-.vacancy__salary {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #dadada;
-
-  @media  screen and (min-width: $middle) {
-    font-size: 1.2rem;
   }
 }
 
@@ -77,32 +67,78 @@
   }
 }
 
-.vacancy__btn {
-  text-align: right;
+.vacancy__description.is-less {
+  height: 73px;
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.vacancy__description.is-more {
+  height: auto;
+}
+
+.vacancy__heading {
+  font-size: 1.25rem;
+  color: #79a3ff;
+  margin-bottom: 6px;
 
   @media  screen and (min-width: $middle) {
-    text-align: left;
+    font-size: 1.4rem;
+  }
+}
+
+.vacancy__list {
+  padding-left: 13px;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--short {
+    margin-bottom: 0;
+  }
+}
+
+.vacancy__rest {
+  display: none;
+}
+
+.vacancy__list-item:before {
+  content: "";
+  position: relative;
+  top: -1px;
+  border-radius: 50%;
+  background-color: rgb(49, 49, 49);
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  margin-right: 13px;
+  vertical-align: middle;
+}
+
+.vacancy__btn {
+  text-align: left;
+
+  @media  screen and (min-width: $small) {
+    text-align: right;
+  }
+
+  @media  screen and (min-width: $middle) {
     padding-left: 78px;
+    text-align: left;
   }
 }
 
 .vacancy__read-more {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   line-height: 1;
+  padding: 6px 0;
   letter-spacing: 0.3px;
-  color: $light;
-  padding: 9px 25px;
-  border-radius: 4px;
-  background-color: $dark-blue;
-  box-shadow: 0 6px 10.92px 1.08px rgba(81, 136, 255, 0.35);
+  color: $dark-blue;
   border: none;
-  transition: background-color 0.4s;
-
-  &:hover {
-    background-color: rgb(104, 150, 252);
-  }
-
-  &:active {
-    box-shadow: 0 6px 10.92px 1.08px rgba(81, 136, 255, 0.35),inset 0 0 21px 0 rgba(27, 98, 255, 0.7);
-  }
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: 0 2px 0 0 $dark-blue;
 }

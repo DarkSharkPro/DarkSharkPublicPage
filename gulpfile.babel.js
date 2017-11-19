@@ -99,7 +99,7 @@ gulp.task('scripts:clear', () => {
 
 
 // Scripts compile
-gulp.task('scripts:compile', gulp.series('scripts:clear', () => {
+gulp.task('scripts:compile', gulp.series(  () => {
     webpackConfig.devtool = isDevelopment ? 'cheap-module-inline-source-map' : '';
     if (!isDevelopment) webpackConfig.plugins.push(
         new UglifyJSPlugin()

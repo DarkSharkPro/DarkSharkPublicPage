@@ -1,5 +1,4 @@
 import slick from 'slick-carousel';
-import validate from 'jquery-validation';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 import Tooltip from 'tooltip.js';
@@ -7,12 +6,18 @@ import workspaceCarousel from './components/carousel-workspace/script';
 import simpleCarousel from './components/carousel-simple/script';
 import carouselCentered from './components/carousel-centered/script';
 import fileInputMask from './components/input-file/script';
+import formHandling from './components/contact-form/script';
+import readMoreLess from './components/vacancy/script';
+import lineCV from './components/line/script';
 
 
 workspaceCarousel();
 simpleCarousel();
 carouselCentered();
 fileInputMask();
+formHandling();
+readMoreLess();
+lineCV();
 
 
 const $navigationLinks = $('.nav__list-link');
@@ -26,7 +31,7 @@ const $window = $(window);
 
 
 $navigationLinks.on('click', scrollTo);
-$window.on('scroll', throttle(addFixedHeader, 200));
+$window.on('scroll', addFixedHeader);
 $window.on('scroll', throttle(highlightNavigation, 100));
 $window.on('resize', debounce(closeMobileNav, 200));
 $hamburger.on('click', function() {
@@ -52,10 +57,21 @@ function scrollTo(event) {
 }
 
 function addFixedHeader() {
-    if ($(this).scrollTop() > $('.about').offset().top - 56) {
+    if ($(this).scrollTop() > 200) {
         $header.addClass('is-fixed');
     } else {
         $header.removeClass('is-fixed');
+        $header.removeClass('slide-up');
+    }
+
+    if ($(this).scrollTop() > $('.about').offset().top - 56) {
+        $header.removeClass('slide-up');
+        $header.addClass('slide-down');
+    }
+
+    if ($(this).scrollTop() < $('.about').offset().top - 56 && $header.hasClass('slide-down')) {
+        $header.removeClass('slide-down');
+        $header.addClass('slide-up');
     }
 }
 
@@ -101,98 +117,9 @@ function highlightNavigation() {
     });
 }
 
-// $('.form').validate({
-//     rules: {
-//         username: {
-//             required: true
-//         },
-//         email: {
-//             required: true,
-//             email: true
-//         },
-//         message: {
-//             required: true
-//         }
-//     },
-//     messages {
-//
-//     }
-// });
-
-$('.form').submit(function(e) {
-    e.preventDefault();
-    const $form = $(this);
-    const data = new FormData($form[0]);
-    const $inputs = $('.form__input');
-    const $loader = $('.form__loader');
-    const $success = $('.form__success');
-    const $fail = $('.form__fail');
-    const $file = $('.file__name');
-
-    if ( $inputs.hasClass('is-error') ) {
-        $inputs.removeClass('is-error');
-        $inputs.next('.form__error').remove();
-    }
-
-    $form.addClass('is-blur');
-    $loader.addClass('is-visible');
-
-    $.ajax({
-        type: 'POST',
-        url: 'http://localhost:3012/mail',
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false
-    }).done(response => {
-
-        $loader.removeClass('is-visible');
-
-        if (response.errors) {
-            $form.removeClass('is-blur');
-            response.errors.forEach(item => {
-                const $input = $(`[name=${item.param}]`);
-                $input.addClass('is-error');
-                $input.after(`<span class="form__error">${item.msg}</span>`);
-            })
-        } else {
-            $success.addClass('is-visible');
-
-            setTimeout(function () {
-                $form.removeClass('is-blur');
-                $success.removeClass('is-visible');
-                $form[0].reset();
-                $file.text('Upload your resume (Optional)');
-
-                $inputs.siblings('.form__label').removeClass('is-focus')
-            }, 3000);
-
-        }
-    }).fail(error => {
-        $loader.removeClass('is-visible');
-        $fail.addClass('is-visible');
-        setTimeout(function () {
-            $form.removeClass('is-blur');
-            $fail.removeClass('is-visible');
-        }, 2000);
-    });
-});
-
-const $inputs = $('.form__input');
-$inputs.on('input', function () {
-    const $this = $(this);
-    $this.removeClass('is-error');
-    $this.siblings('.form__error').remove();
-    $this.siblings('.form__label').addClass('is-focus');
-});
-
-$inputs.on('focus', function () {
-    const $this = $(this);
-    $this.siblings('.form__label').addClass('is-focus');
-});
-
-$inputs.on('blur', function () {
-    const $this = $(this);
-    if ($this.val() === '')
-        $this.siblings('.form__label').removeClass('is-focus');
+$('.carousel-centered__nav').on('setPosition', function () {
+    $(this).find('.slick-slide').height('auto');
+    const slickTrack = $(this).find('.slick-track');
+    const slickTrackHeight = $(slickTrack).height();
+    $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
 });

@@ -7,8 +7,21 @@ mixin vacancy(content, data)
                 +icon(content.icon)
             div.vacancy__title
                 h4.vacancy__position= content.position
-                span.vacancy__salary= content.salary
         div.vacancy__description
-            p= content.description
+            h4.vacancy__heading Requirements:
+            ul.vacancy__list.vacancy__list--short
+                for item, index in content.requirements
+                    if index < 3
+                        li.vacancy__list-item= item
+            div.vacancy__rest
+                -var rest = 3
+                ul.vacancy__list
+                    for item, index in content.requirements
+                        if index >= rest
+                            li.vacancy__list-item= item
+                h4.vacancy__heading We offer:
+                ul.vacancy__list
+                    for item in content.offer
+                        li.vacancy__list-item= item
         div.vacancy__btn
-            button.vacancy__read-more(type="button") Read more
+            button.vacancy__read-more(type="button") Show more
