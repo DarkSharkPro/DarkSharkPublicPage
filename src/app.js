@@ -1,7 +1,7 @@
 import slick from 'slick-carousel';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
-import Tooltip from 'tooltip.js';
+// import Tooltip from 'tooltip.js';
 import workspaceCarousel from './components/carousel-workspace/script';
 import simpleCarousel from './components/carousel-simple/script';
 import carouselCentered from './components/carousel-centered/script';
@@ -123,3 +123,33 @@ $('.carousel-centered__nav').on('setPosition', function () {
     const slickTrackHeight = $(slickTrack).height();
     $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
 });
+
+
+// let tooltip;
+// $window.on('resize', debounce(function () {
+//     console.log(tooltip)
+//     if (window.innerWidth >= 992 && tooltip === undefined) {
+//         $('.rewards .carousel-centered__for .slick-slide').mouseenter(function () {
+//             const indx = $(this).attr('data-slick-index');
+//             const $tooltipTitle = $(`.rewards .carousel-centered__description[data-slick-index=${indx}] h4`).text();
+//             const $tooltipDescr = $(`.rewards .carousel-centered__description[data-slick-index=${indx}] p`).text();
+//
+//             tooltip = new Tooltip($(this), {
+//                 html: true,
+//                 container: 'body',
+//                 title: `<h4 class="tooltip__title">${$tooltipTitle}</h4><p class="tooltip__text">${$tooltipDescr}</p>`,
+//                 placement: 'bottom-start',
+//                 offset: '0, 30px',
+//                 trigger: 'hover'
+//             });
+//
+//             console.log('sdfsdf')
+//             console.log(tooltip)
+//             return tooltip;
+//         }).mouseleave(function () {
+//             tooltip.dispose();
+//         });
+//     } else {
+//         tooltip.dispose();
+//     }
+// }, 200));

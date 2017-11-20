@@ -19,6 +19,42 @@
 @import "components/input-file/style";
 @import "components/social/style";
 @import "components/line/style";
+.tooltip {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(177, 177, 177, 0.24) 0 0 11.1px 2px;
+  z-index: 1;
+  padding: 20px 20px 20px;
+  max-width: 435px;
+
+  &__text {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #b7b7b7;
+  }
+
+  &__title {
+    font-weight: 500;
+    color: #5188ff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  &-arrow {
+    border: 10px solid;
+    border-color: transparent transparent #fff #fff;
+    position: absolute;
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+
+    box-shadow: -2px 2px 11px 0 rgba(177, 177, 177, 0.24);
+
+    width: 0;
+    height: 0;
+    top: 0;
+  }
+}
 
 .is-error {
   box-shadow: 0 2px 0 0 $danger;
