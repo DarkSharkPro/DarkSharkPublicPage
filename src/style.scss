@@ -1,6 +1,7 @@
 @import "base/variables";
 @import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
 @import "../node_modules/slick-carousel/slick/slick.scss";
+@import "./libs/slick-lightbox/slick-lightbox.min";
 @import "base/base";
 @import "base/layout";
 @import "base/sprite";
@@ -19,6 +20,7 @@
 @import "components/input-file/style";
 @import "components/social/style";
 @import "components/line/style";
+
 .tooltip {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(177, 177, 177, 0.24) 0 0 11.1px 2px;

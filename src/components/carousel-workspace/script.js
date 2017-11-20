@@ -1,3 +1,5 @@
+import slickLightbox from '../../libs/slick-lightbox/slick-lightbox.min';
+
 export default () => {
     $('.workspace__carousel').slick({
         slidesToShow: 1,
@@ -20,5 +22,10 @@ export default () => {
                 }
             }
         ]
+    });
+
+    $('.workspace__carousel').slickLightbox({
+        src: 'src',
+        itemSelector: '.workspace__inner img'
     });
 }
