@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 module.exports = {
-    entry: "./src/app.js",
+    entry: './src/app.js',
     output: {
-        filename: "./bundle.js"
+        filename: './bundle.js'
     },
     module: {
         rules:[
@@ -10,7 +10,7 @@ module.exports = {
                 test: /\.js$/,
                 use: [
                     {
-                        loader: "babel-loader",
+                        loader: 'babel-loader',
                         options: {
                             presets: [
                                 ['es2015']
@@ -24,7 +24,8 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ]
 };

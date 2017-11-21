@@ -7,7 +7,8 @@ mixin workspace-carousel(content, data)
         div.workspace__carousel
             for image in content
                 div.workspace__image
-                    div.workspace__inner
-                        img(src= image alt="")
+                    div.workspace__inner(data-src="./assets/workspace/"+image data-fancybox="group")
+                        img(src="./assets/workspace/preview/"+image alt="")
+
 
 

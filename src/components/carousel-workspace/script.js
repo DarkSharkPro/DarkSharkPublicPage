@@ -1,4 +1,5 @@
-import slickLightbox from '../../libs/slick-lightbox/slick-lightbox.min';
+window.jQuery = $;
+require("@fancyapps/fancybox");
 
 export default () => {
     $('.workspace__carousel').slick({
@@ -24,8 +25,23 @@ export default () => {
         ]
     });
 
-    $('.workspace__carousel').slickLightbox({
-        src: 'src',
-        itemSelector: '.workspace__inner img'
-    });
+    $('.workspace__carousel').fancybox({
+        loop : true,
+        selector: '.workspace__inner',
+        buttons: [
+            'close'
+        ],
+        infobar : false,
+        spinnerTpl : '<div class="spinner-holder"><div class="spinner"><div class="spinner__bounce1"></div><div class="spinner__bounce2"></div></div></div>'
+    })
+
+    // $('.workspace__carousel').lightGallery({
+    //     selector: '.workspace__inner',
+    //     height: '800px',s
+    //     download: false,
+    //     counter: false,
+    //     thumbnail:false,
+    //     nextHtml: '<svg class="icon icon-arrow-r" preserveAspectRatio="xMinYMin"><use xlink:href="#arrow-r"></use></svg>',
+    //     prevHtml: '<svg class="icon icon-arrow-l" preserveAspectRatio="xMinYMin"><use xlink:href="#arrow-l"></use></svg>'
+    // });
 }

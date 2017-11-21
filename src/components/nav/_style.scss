@@ -34,7 +34,7 @@
   display: block;
   position: fixed;
   z-index: 5;
-  bottom: 15vh;
+  bottom: -75vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -45,7 +45,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: 100vh;
   background-color: #3456a6;
   z-index: 5;
   padding-top: 8vh;
