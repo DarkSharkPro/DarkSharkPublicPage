@@ -29,6 +29,11 @@ const $body = $('body');
 const $document = $(document);
 const $window = $(window);
 
+$window.on('load', function () {
+    const preloader = $('.page-preloader');
+    preloader.addClass('is-hidden');
+});
+
 
 $navigationLinks.on('click', scrollTo);
 $window.on('scroll', addFixedHeader);
@@ -81,7 +86,6 @@ function closeMobileNav() {
         $hamburger.removeClass('is-active');
 }
 
-
 $sections.each(function() {
     const id = $(this).attr('id');
     sectionId[id] = $('.nav__list-link[href="#' + id + '"]');
@@ -131,19 +135,30 @@ $window.on('load', showTooltip);
 
 function showTooltip() {
     const $reward = $('.rewards .carousel-centered__for .slick-slide');
-    if (window.innerWidth >= 992) {
-        console.log(tooltip, 'tooltip');
+    if (window.innerWidth >= 1024) {
         $reward.off('mouseenter mouseleave');
         $reward.mouseenter(function () {
             const indx = $(this).attr('data-slick-index');
             const $tooltipTitle = $(`.rewards .carousel-centered__description[data-slick-index=${indx}] h4`).text();
             const $tooltipDescr = $(`.rewards .carousel-centered__description[data-slick-index=${indx}] p`).text();
+
             tooltip = new Tooltip($(this), {
                 html: true,
                 container: 'body',
                 title: `<h4 class="tooltip__title">${$tooltipTitle}</h4><p class="tooltip__text">${$tooltipDescr}</p>`,
                 placement: 'bottom-start',
-                offset: '0, 30px'
+                offset: '0, 30px',
+                popperOptions: {
+                    onCreate: (data) => {
+                        if (data.placement === 'top-start') {
+                            $(data.arrowElement).addClass('tooltip-arrow--bottom')
+                        }
+                        console.log(data.offsets.arrow)
+                        console.log(data.arrowStyles)
+                        console.log(data.arrowElement)
+                        console.log(data.placement)
+                    }
+                }
             });
         }).mouseleave(function () {
             tooltip.dispose();
@@ -154,3 +169,4 @@ function showTooltip() {
         $('.tooltip').remove();
     }
 }
+

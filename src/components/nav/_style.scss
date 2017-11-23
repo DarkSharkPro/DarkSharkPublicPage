@@ -32,11 +32,17 @@
 
 .nav-is-open .header__social {
   display: block;
+  text-align: center;
   position: fixed;
+  min-width: 257px;
   z-index: 5;
-  bottom: -75vh;
+  bottom: 20vh;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.nav-is-open .header.is-fixed .header__social {
+  bottom: -70vh;
 }
 
 .nav-is-open .header__nav {
