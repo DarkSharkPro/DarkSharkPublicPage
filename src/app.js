@@ -1,23 +1,26 @@
-import slick from 'slick-carousel';
+// Libraries
+import slick from './libs/slick-carousel/slick';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
 import Tooltip from 'tooltip.js';
-import workspaceCarousel from './components/carousel-workspace/script';
-import simpleCarousel from './components/carousel-simple/script';
-import carouselCentered from './components/carousel-centered/script';
+
+// Components
+import setWorkspaceCarousel from './components/carousel-workspace/script';
+import setUnslickCarousel from './components/carousel-simple/script';
+import setCenterModeCarousel from './components/carousel-centered/script';
 import fileInputMask from './components/input-file/script';
 import formHandling from './components/contact-form/script';
-import readMoreLess from './components/vacancy/script';
-import lineCV from './components/line/script';
+import toggleReadMore from './components/vacancy/script';
+import lineCVScrollTo from './components/line/script';
 
 
-workspaceCarousel();
-simpleCarousel();
-carouselCentered();
+setWorkspaceCarousel();
+setUnslickCarousel();
+setCenterModeCarousel();
 fileInputMask();
 formHandling();
-readMoreLess();
-lineCV();
+toggleReadMore();
+lineCVScrollTo();
 
 
 const $navigationLinks = $('.nav__list-link');
@@ -153,10 +156,6 @@ function showTooltip() {
                         if (data.placement === 'top-start') {
                             $(data.arrowElement).addClass('tooltip-arrow--bottom')
                         }
-                        console.log(data.offsets.arrow)
-                        console.log(data.arrowStyles)
-                        console.log(data.arrowElement)
-                        console.log(data.placement)
                     }
                 }
             });
