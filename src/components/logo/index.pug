@@ -2,4 +2,8 @@ include ../icon/index
 
 mixin logo(logo, data)
     div.logo&attributes(data ? data : {})
-        +icon('logo--logo')
+        if data.class === "header__logo"
+            button.header__home-btn
+                +icon('logo--logo')
+        else
+            +icon('logo--logo')

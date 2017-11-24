@@ -2,10 +2,10 @@ const apiKey = 'key-19d46b64b091786d89a81bf09d246948';
 const domain = 'sandbox5e4f176b14d54238b8b68fd91f174a65.mailgun.org';
 const express = require('express');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
 const multer = require('multer');
 const mail = require('mailgun-js')({apiKey: apiKey, domain: domain});
 const validator = require('express-validator');
+const path = require('path');
 
 const app = express();
 
@@ -20,8 +20,13 @@ const storage = multer.diskStorage({
     }
 });
 
-app.use(multer({ storage: storage}).single('cv'));
+app.use(multer({ storage: storage}).single('uploads'));
 app.use(validator());
+app.use(express.static('dist'));
+
+app.get('/',function(req,res) {
+    res.sendFile(path.join(__dirname, './dist/index.html'));
+});
 
 app.post('/mail', function(req, res) {
     req.checkBody('email','Please enter correct email').isEmail();
@@ -53,7 +58,7 @@ app.post('/mail', function(req, res) {
 
 });
 
-app.listen(3012, 'localhost', function () {
+app.listen(3000, '0.0.0.0', function () {
     console.log('server started on port 3012');
 });
 

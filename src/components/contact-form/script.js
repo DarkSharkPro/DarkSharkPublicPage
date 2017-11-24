@@ -1,4 +1,6 @@
 import autosize from 'autosize';
+import validate from 'jquery-validation';
+import additionalMethods from 'jquery-validation/dist/additional-methods';
 
 export default () => {
     const $form = $('.form');
@@ -20,38 +22,57 @@ export default () => {
         const $this = $(this);
         const data = new FormData($this[0]);
 
-        showLoadSpinner();
+        $this.validate({
+            rules: {
+                username: {required: true},
+                email: {email: true, required: true},
+                message: {required: true},
+                uploads: {extension: "txt|pdf|doc|docx"}
+            },
+            messages: {
+                username: {required: 'Please enter your name'},
+                email: {email: 'Please enter correct email', required: 'Please enter correct email'},
+                messages: {required: 'This field is required'},
+                uploads: {extension: 'Only .pdf, .doc and .txt files allowed'}
+            },
+            errorClass: 'is-error',
+            errorElement: 'span'
+        });
 
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:3012/mail',
-            data: data,
-            cache: false,
-            contentType: false,
-            processData: false
-        })
-            .done(response => {
-                hideLoadSpinner();
-                if (response.errors) {
-                    showErrorMessages(response.errors);
-                } else {
-                    showSuccess();
+        if ($this.valid()) {
+            showLoadSpinner();
+
+            $.ajax({
+                type: 'POST',
+                url: '/mail',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false
+            })
+                .done(response => {
+                    hideLoadSpinner();
+                    if (response.errors) {
+                        showErrorMessages(response.errors);
+                    } else {
+                        showSuccess();
+                        setTimeout(function () {
+                            resetForm();
+                            hideSuccess();
+                            $inputs.siblings('.form__label').removeClass('is-focus');
+                            autosize.update($('.form__input--textarea'));
+                        }, 3000);
+                    }
+                })
+                .fail(error => {
+                    hideLoadSpinner();
+                    showFail();
                     setTimeout(function () {
-                        resetForm();
-                        hideSuccess();
-                        $inputs.siblings('.form__label').removeClass('is-focus');
-                        autosize.update($('.form__input--textarea'));
+                        hideFail();
                     }, 3000);
-                }
-            })
-            .fail(error => {
-                hideLoadSpinner();
-                showFail();
-                setTimeout(function () {
-                    hideFail();
-                }, 3000);
-                console.log(error);
-            })
+                    console.log(error);
+                })
+        }
     }
 
     function showErrorMessages(errors) {

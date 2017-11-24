@@ -31,6 +31,14 @@ const $hamburger = $('.hamburger');
 const $body = $('body');
 const $document = $(document);
 const $window = $(window);
+const $logoBtn = $('.header__home-btn');
+
+$logoBtn.on('click', function(event) {
+    event.preventDefault();
+    $('html, body').stop().animate({
+        scrollTop: 0
+    }, 800);
+});
 
 $window.on('load', function () {
     const preloader = $('.page-preloader');

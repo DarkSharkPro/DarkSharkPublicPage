@@ -98,8 +98,12 @@
   }
 }
 
-.form__input.is-error:focus {
+.form__input.is-error {
   box-shadow: 0 2px 0 0 $danger;
+}
+
+.form__input.is-error:focus {
+  box-shadow: 0 2px 0 0 $light;
 }
 
 .form__input--textarea {
@@ -173,13 +177,18 @@
   animation: status 0.2s 1s ease-in forwards;
 }
 
-.form__error {
+.form__error,
+span.is-error {
   position: absolute;
   bottom: -20px;
   left: 0;
   display: inline-block;
   font-size: 1.2rem;
   color: $danger;
+}
+
+label.is-error {
+  box-shadow: none;
 }
 
 .form__input::-webkit-input-placeholder {

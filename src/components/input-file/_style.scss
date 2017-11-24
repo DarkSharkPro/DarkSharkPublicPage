@@ -7,7 +7,15 @@
   z-index: -1;
 }
 
-.file + label {
+.file.is-error ~ [for="file"] {
+  box-shadow: 0 2px 13.5px 1.5px rgba(234, 64, 64, 0.86);
+
+  .icon-cv {
+    fill: $danger;
+  }
+}
+
+[for="file"] {
   cursor: pointer;
   width: 31px;
   height: 31px;

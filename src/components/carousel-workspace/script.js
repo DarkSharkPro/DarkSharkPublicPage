@@ -32,6 +32,14 @@ export default () => {
             'close'
         ],
         infobar : false,
-        spinnerTpl : '<div class="spinner-holder"><div class="spinner"><div class="spinner__bounce1"></div><div class="spinner__bounce2"></div></div></div>'
+        spinnerTpl : '<div class="spinner-holder"><div class="spinner"><div class="spinner__bounce1"></div><div class="spinner__bounce2"></div></div></div>',
+        mobile : {
+            clickContent : function( current, event ) {
+                return current.type === 'image' ? 'close' : false;
+            },
+            clickSlide : function( current, event ) {
+                return current.type === 'image' ? 'close' : false;
+            }
+        }
     })
 }

@@ -99,7 +99,7 @@ gulp.task('scripts:clear', () => {
 
 
 // Scripts compile
-gulp.task('scripts:compile', gulp.series('scripts:clear', () => {
+gulp.task('scripts:compile', gulp.series(() => {
     webpackConfig.devtool = isDevelopment ? 'cheap-module-inline-source-map' : '';
     if (!isDevelopment) webpackConfig.plugins.push(
         new UglifyJSPlugin()
@@ -154,6 +154,12 @@ gulp.task('images:copy', () => {
 gulp.task('cache:clear', (cb) => {
     return cache.clearAll(cb);
 });
+
+
+gulp.task('production', gulp.series(
+    'sprite:compile',
+    gulp.parallel('images:copy', 'templates:compile', 'styles:compile', 'scripts:compile')
+));
 
 
 gulp.task('watch', () => {

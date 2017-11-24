@@ -89,10 +89,6 @@
   }
 }
 
-.is-error {
-  box-shadow: 0 2px 0 0 $danger;
-}
-
 .with-line {
   position: relative;
 
@@ -235,6 +231,11 @@
   }
 }
 
+.header__home-btn {
+  background-color: transparent;
+  border: none;
+}
+
 .header__nav {
   display: none;
 
@@ -349,6 +350,10 @@
     left: 50%;
   }
 
+  @media screen and (min-width: $small) and (orientation: landscape) {
+    top: 39%;
+  }
+
   @media screen and (min-width: $middle) {
     top: 50%;
     left: calc(50% - 63px)
@@ -365,7 +370,6 @@
   left: 10%;
 
   @media screen and (min-width: $small) {
-    font-size: 3.8rem;
     width: 380px;
     left: 50%;
     transform: translateX(-50%);
@@ -401,6 +405,11 @@
     font-size: 3.8rem;
   }
 
+  @media screen and (min-width: $small) and (orientation: landscape) {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
   @media screen and (min-width: $middle) {
     font-size: 2.5rem;
   }
@@ -423,8 +432,12 @@
   letter-spacing: 0.2px;
   color: $dark;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $small) {
     font-size: 2rem;
+  }
+
+  @media screen and (min-width: $small) and (orientation: landscape) {
+    font-size: 1.5rem;
   }
 
   @media screen and (min-width: $middle) {
@@ -459,8 +472,12 @@
 .promo__greet img {
   height: 37vmin;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $small) {
     height: 178px;
+  }
+
+  @media screen and (min-width: $small) and (orientation: landscape) {
+    height: 115px;
   }
 
   @media screen and (min-width: $large) {
@@ -833,7 +850,7 @@
 }
 
 .business__services {
-  padding: 32px 15px 0;
+  padding: 52px 15px 0;
 
   @media  screen and (min-width: $middle) {
     width: 64%;

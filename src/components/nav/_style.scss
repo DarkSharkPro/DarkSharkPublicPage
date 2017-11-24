@@ -28,6 +28,7 @@
 
 .nav-is-open {
   overflow: hidden;
+  position: fixed;
 }
 
 .nav-is-open .header__social {
@@ -36,7 +37,7 @@
   position: fixed;
   min-width: 257px;
   z-index: 5;
-  bottom: 20vh;
+  bottom: 7vh;
   left: 50%;
   transform: translateX(-50%);
 }
