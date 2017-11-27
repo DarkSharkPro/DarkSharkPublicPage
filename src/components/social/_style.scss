@@ -22,5 +22,18 @@
   .icon {
     font-size: 1.5rem;
     fill: #fff;
+
+    @media screen and (min-width: $middle) {
+      font-size: 1.75rem;
+    }
+  }
+
+  .icon-dou {
+    position: relative;
+    top: -1px;
+
+    @media screen and (min-width: $small) {
+      top: 0;
+    }
   }
 }

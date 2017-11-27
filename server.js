@@ -1,5 +1,5 @@
-const apiKey = 'key-19d46b64b091786d89a81bf09d246948';
-const domain = 'sandbox5e4f176b14d54238b8b68fd91f174a65.mailgun.org';
+const apiKey = 'key-6c78ce95dea04f046f4c769916339991';
+const domain = 'sandboxcf3f9d4db058485cba70faea54df6f32.mailgun.org';
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -41,25 +41,24 @@ app.post('/mail', function(req, res) {
 
     const data = {
         from: req.body.email,
-        to: 'test@darkshark.pro',
+        to: 'office@darkshark.pro',
         subject: 'Новое сообщение с сайта Darkshark.pro',
         html: `
-        <p>От кого: ${req.body.username}</p>
+        <p>От: ${req.body.username}</p>
         <p>Сообщение: ${req.body.message}</p>
     `,
         attachment: req.file ? req.file.path : null
     };
 
     mail.messages().send(data, function (error, body) {
-        console.log(body);
         if (!error) res.sendStatus(200);
         else res.sendStatus(400);
     });
 
 });
 
-app.listen(3000, '0.0.0.0', function () {
-    console.log('server started on port 3012');
+app.listen(80, '0.0.0.0', function () {
+    console.log('server started on port 80');
 });
 
 
