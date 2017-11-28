@@ -28,9 +28,12 @@
   }
 }
 
-
 .hamburger-box {
   @media screen and (min-width: $middle) {
     width: 35px;
   }
+}
+
+.hamburger--slider.is-active .hamburger-inner {
+  background-color: $light;
 }

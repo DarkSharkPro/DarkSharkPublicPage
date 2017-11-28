@@ -82,6 +82,10 @@ select {
   text-transform: none;
 }
 
+picture {
+  display: block;
+}
+
 button,
 html input[type="button"],
 input[type="reset"],
