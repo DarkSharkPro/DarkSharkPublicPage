@@ -5,6 +5,7 @@ const cors = require('cors');
 const multer = require('multer');
 const mail = require('mailgun-js')({apiKey: apiKey, domain: domain});
 const validator = require('express-validator');
+const compression = require('compression');
 const path = require('path');
 
 const app = express();
@@ -22,6 +23,7 @@ const storage = multer.diskStorage({
 
 app.use(multer({ storage: storage}).single('uploads'));
 app.use(validator());
+app.use(compression());
 app.use(express.static('dist'));
 
 app.get('/',function(req,res) {
