@@ -149,6 +149,13 @@ gulp.task('images:copy', () => {
         .pipe(gulp.dest('dist/assets/'))
 });
 
+// Scripts copy
+gulp.task('scripts:copy', () => {
+    return gulp.src(['./src/scripts/**/*'])
+        .pipe(plumber())
+        .pipe(gulp.dest('dist/scripts/'))
+});
+
 
 // Clear cache
 gulp.task('cache:clear', (cb) => {
@@ -158,7 +165,7 @@ gulp.task('cache:clear', (cb) => {
 
 gulp.task('production', gulp.series(
     'sprite:compile',
-    gulp.parallel('images:copy', 'templates:compile', 'styles:compile', 'scripts:compile')
+    gulp.parallel('scripts:copy', 'images:copy', 'templates:compile', 'styles:compile', 'scripts:compile')
 ));
 
 
@@ -171,7 +178,7 @@ gulp.task('watch', () => {
 
 gulp.task('default', gulp.series(
     'sprite:compile',
-    gulp.parallel('images:copy', 'templates:compile', 'styles:compile', 'scripts:compile'),
+    gulp.parallel('scripts:copy', 'images:copy', 'templates:compile', 'styles:compile', 'scripts:compile'),
     gulp.parallel('server:start', 'watch')
 ));
 

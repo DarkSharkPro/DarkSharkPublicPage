@@ -7,6 +7,8 @@ const mail = require('mailgun-js')({apiKey: apiKey, domain: domain});
 const validator = require('express-validator');
 const path = require('path');
 
+const port = process.env.PORT || 3000
+
 const app = express();
 
 app.use(cors());
@@ -58,8 +60,8 @@ app.post('/mail', function(req, res) {
 
 });
 
-app.listen(3000, '0.0.0.0', function () {
-    console.log('server started on port 3012');
+app.listen(port, '0.0.0.0', function () {
+    console.log(`server started on port ${port}`);
 });
 
 
