@@ -8,6 +8,8 @@ const validator = require('express-validator');
 const compression = require('compression');
 const path = require('path');
 
+const port = process.env.PORT || 3000
+
 const app = express();
 
 app.use(cors());
@@ -59,8 +61,9 @@ app.post('/mail', function(req, res) {
 
 });
 
-app.listen(80, '0.0.0.0', function () {
-    console.log('server started on port 80');
+
+app.listen(port, '0.0.0.0', function () {
+    console.log(`server started on port ${port}`);
 });
 
 
