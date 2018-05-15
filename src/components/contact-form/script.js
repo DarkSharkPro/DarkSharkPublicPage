@@ -44,7 +44,7 @@ export default () => {
 
             $.ajax({
                 type: 'POST',
-                url: '/mail',
+                url: '/mail.php',
                 data: data,
                 cache: false,
                 contentType: false,
